@@ -1,0 +1,8 @@
+@use './reset' as*;
+@use './abstracts' as*;
+
+html {
+    font-size: 16px;
+}
+
+@use './fonts' as*;
