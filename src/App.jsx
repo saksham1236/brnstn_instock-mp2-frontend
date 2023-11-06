@@ -1,7 +1,8 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import logo from './logo.svg';
 import './styles/App.scss';
-import Header from "./components/header/Header";
+import Header from "./components/Header/Header";
+import Footer from "./components/Footer/Footer";
 
 
 function App() {
@@ -18,7 +19,7 @@ function App() {
         {/* {<Route path ="/inventory/:item/edit" element = {<InventoryItemEdit />} />} */}
         {/* {<Route path ="/inventory/add" element = {<AddInventory />} />} */}
       </Routes>
-      
+      <Footer />
     </BrowserRouter>
 
   );
