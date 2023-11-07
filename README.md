@@ -2,7 +2,7 @@
 
 Github link front-end: (https://github.com/saksham1236/brnstn_instock-mp2-frontend)
 
-Back-end link: (https://github.com/mikesdc/brnstn_inStock-server)
+Back-end link: (https://github.com/mikesdc/brnstn_instock-mp2-server)
 
 ## Collaborators: Arjun, Micheal, Kate, Saksham
 
