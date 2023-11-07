@@ -1,6 +1,7 @@
 # Instock BrainStation Project - Frontend
 
-Github link front-end: (https://github.com/mikesdc/brnstn_inStock-server)
+Github link front-end: (https://github.com/saksham1236/brnstn_instock-mp2-frontend)
+
 Back-end link: (https://github.com/mikesdc/brnstn_inStock-server)
 
 ## Collaborators: Arjun, Micheal, Kate, Saksham
