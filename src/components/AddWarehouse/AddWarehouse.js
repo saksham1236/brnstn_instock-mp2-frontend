@@ -1,5 +1,7 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { v4 as uuidv4 } from 'uuid';
+
 
 // pages
 import './AddWarehouse.scss'
@@ -36,22 +38,22 @@ return (
           
           <section className="warehouse-form__section--first">
             <h2 className="warehouse-form__header">Warehouse Details</h2>
-            <h3 className="text-input__header">Warehouse Name</h3>
+            <label className="text-input__header">Warehouse Name</label>
               <input 
                 className="text-input__input" 
                 placeholder="Warehouse Name">
               </input>
-            <h3 className="text-input__header">Street Address</h3>
+            <label className="text-input__header">Street Address</label>
               <input 
                 className="text-input__input" 
                 placeholder="Street Address">
               </input>
-            <h3 className="text-input__header">City</h3>
+            <label className="text-input__header">City</label>
               <input 
                 className="text-input__input" 
                 placeholder="City">
               </input>
-            <h3 className="text-input__header">Country</h3>
+            <label className="text-input__header">Country</label>
               <input 
                 className="text-input__input" 
                 placeholder="Country">
@@ -60,22 +62,22 @@ return (
 
           <section className="warehouse-form__section--second">
             <h2 className="warehouse-form__header">Contact Details</h2>
-            <h3 className="text-input__header">Contact Name</h3>
+            <label className="text-input__header">Contact Name</label>
               <input 
                 className="text-input__input" 
                 placeholder="Contact Name">
               </input>
-            <h3 className="text-input__header">Position</h3>
+            <label className="text-input__header">Position</label>
               <input 
                 className="text-input__input" 
                 placeholder="Position">
               </input>
-            <h3 className="text-input__header">Phone Number</h3>
+            <label className="text-input__header">Phone Number</label>
               <input 
                 className="text-input__input" 
                 placeholder="Phone Number">
               </input>
-            <h3 className="text-input__header">Email</h3>
+            <label className="text-input__header">Email</label>
               <input 
                 className="text-input__input" 
                 placeholder="Email">
