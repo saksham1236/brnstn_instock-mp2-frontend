@@ -10,7 +10,7 @@ import ArrowBack from '../../assets/Icons/arrow_back-24px.svg'
 
 export default function AddWarehouseForm () {
   
-}
+
 
 
 
