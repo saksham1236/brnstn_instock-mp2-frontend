@@ -1,8 +1,10 @@
 # Instock BrainStation Project - Frontend
 
 Github link front-end: (https://github.com/saksham1236/brnstn_instock-mp2-frontend)
-
 Back-end link: (https://github.com/mikesdc/brnstn_instock-mp2-server)
+
+Figma:
+https://www.figma.com/file/qLdwhUjqq5bKxoNYZ6v5Ze/U---InStock-Mockups?type=design&node-id=1196-0&mode=design
 
 ## Collaborators: Arjun, Micheal, Kate, Saksham
 
