@@ -1,10 +1,10 @@
 # Instock BrainStation Project - Frontend
 
+## Instock BrainStation Project - Backend
+https://github.com/mikesdc/brnstn_instock-mp2-server
+
 ## Instock BrainStation Project - Frontend
 https://github.com/saksham1236/brnstn_instock-mp2-frontend
-
-## Instock BrainStation Project - Backend
-Back-end link: (https://github.com/mikesdc/brnstn_instock-mp2-server)
 
 ## Jira Board:
 https://brainstationeducation.atlassian.net/jira/software/c/projects/MP2/boards/524
