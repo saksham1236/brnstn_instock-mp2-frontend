@@ -1,8 +1,17 @@
 # Instock BrainStation Project - Frontend
 
-Github link front-end: (https://github.com/saksham1236/brnstn_instock-mp2-frontend)
+## Instock BrainStation Project - Backend
+https://github.com/mikesdc/brnstn_instock-mp2-server
 
-Back-end link: (https://github.com/mikesdc/brnstn_instock-mp2-server)
+## Instock BrainStation Project - Frontend
+https://github.com/saksham1236/brnstn_instock-mp2-frontend
+
+## Jira Board:
+https://brainstationeducation.atlassian.net/jira/software/c/projects/MP2/boards/524
+
+## Figma File:
+https://www.figma.com/file/qLdwhUjqq5bKxoNYZ6v5Ze/U---InStock-Mockups?type=design&node-id=1196-0&mode=design
+
 
 ## Collaborators: Arjun, Micheal, Kate, Saksham
 
