@@ -4,6 +4,14 @@
   --card-width: 65rem;
 }
 
+.tablet-view {
+  display: none;
+
+  @include tablet {
+    display: initial;
+  }
+}
+
 .title-block {
   display: flex;
   justify-content: center;
@@ -14,21 +22,23 @@
   &__container {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    justify-content: flex-end;
     background-color: var(--White);
+    width: 87%;
+    height: 3.5rem;
+    border-top-left-radius: 0.2rem;
+    border-top-right-radius: 0.2rem;
     z-index: 1;
-    // padding: 1.5rem 1rem;
 
     @include tablet {
       flex-direction: row;
+      align-items: center;
       justify-content: space-between;
       height: 6.6rem;
       display: flex;
       align-items: flex-end;
       padding: 1rem 2rem 1.5rem;
       width: var(--card-width);
-      border-top-left-radius: 0.2rem;
-      border-top-right-radius: 0.2rem;
     }
 
     @include desktop {
@@ -36,15 +46,21 @@
   }
 
   &__title {
-    font-size: 2.2rem;
-    margin-right: auto;
+    font-size: 1.45rem;
+    padding-left: 1.5rem;
+
+    @include tablet {
+      font-size: 2.2rem;
+      padding-left: 1.5rem;
+      margin-right: auto;
+    }
   }
 
   &__search {
-    display: flex;
-    flex-direction: row;
-    font-size: 1rem;
     @include tablet {
+      display: flex;
+      flex-direction: row;
+      font-size: 1rem;
       width: 18rem;
       margin-right: 1.2rem;
       padding: 0.5rem 0;
@@ -89,13 +105,75 @@
   }
 
   &__card {
-    width: var(--card-width);
+    width: 87%;
     background-color: var(--White);
     border-bottom-left-radius: 0.2rem;
     border-bottom-right-radius: 0.2rem;
-    //add shadow here
     box-shadow: 0px 0px 4px 4px rgba(0, 0, 0, 0.05);
     z-index: 0;
+
+    @include tablet {
+      width: var(--card-width);
+      background-color: var(--White);
+      border-bottom-left-radius: 0.2rem;
+      border-bottom-right-radius: 0.2rem;
+      box-shadow: 0px 0px 4px 4px rgba(0, 0, 0, 0.05);
+      z-index: 0;
+    }
+  }
+}
+
+// this search block is for mobile view
+.search-block {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  &__search {
+    margin: 0.7rem 0;
+    display: flex;
+    flex-direction: row;
+    font-size: 0.7rem;
+    font-weight: 400;
+    width: 15rem;
+    padding: 0.2rem 0;
+    border: 1px solid var(--Cloud);
+    border-radius: 1.25rem;
+
+    input {
+      flex-shrink: 1;
+      font-size: 0.8rem;
+      padding-left: 1rem;
+      width: 80%;
+      border: none;
+      margin-right: auto;
+      background-color: transparent;
+    }
+
+    img {
+      padding-right: 0.7rem;
+      width: 1.9rem;
+    }
+
+    &-bar {
+      display: inline;
+    }
+  }
+
+  &__add {
+    &-button {
+      background-color: var(--Instock-Indigo);
+      color: var(--White);
+      border: none;
+      border-radius: 1.25rem;
+      padding: 0.2rem 0;
+      font-size: 0.7rem;
+      font-weight: 400;
+      width: 15rem;
+      height: 2rem;
+      margin-bottom: 0.5rem;
+    }
   }
 }
 
@@ -150,18 +228,103 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-
-}
+  }
 
   &__icons {
-
     .sort-block__icon {
-        margin-top: auto;
-        width: 1rem;
+      margin-top: auto;
+      width: 1rem;
     }
   }
 }
 
 .warehouses-block {
-  width: var(--card-width);
+  border-top: 0.09rem solid var(--Cloud);
+
+  @include tablet {
+    width: var(--card-width);
+  }
+
+  &__row {
+    border-top: 0.09rem solid var(--Cloud);
+
+    &:first-of-type {
+      border-top: none;
+    }
+  }
+
+  &__mobile-block-1 {
+    display: flex;
+    justify-content: space-between;
+    border: 1px solid palegreen;
+    padding: 0 1rem;
+  }
+
+  &__column-1 {
+    border: 1px dashed lightseagreen;
+    width: 45%;
+  }
+
+  &__column-2 {
+    border: 1px dashed lightsalmon;
+    flex-grow: 1;
+    margin-left: 0.2rem;
+  }
+
+  &__header {
+    text-transform: uppercase;
+    font-size: 0.5rem;
+    margin-top: 0.8rem;
+    margin-bottom: 0.1rem;
+
+    color: var(--Slate);
+  }
+
+  &__warehouse {
+    &-name,
+    &-address,
+    &-contact-name,
+    &-contact-number,
+    &-contact-email {
+      font-size: 0.6rem;
+      font-weight: 400;
+      color: var(--Instock-Black);
+    }
+
+    &-name {
+      img {
+        width: 0.9rem;
+        margin-right: 0.5rem;
+      }
+
+      a {
+        display: flex;
+        text-decoration: none;
+        font-weight: 700;
+        color: var(--Instock-Indigo);
+      }
+    }
+  }
+
+  &__mobile-block-2 {
+    border: 1px solid palevioletred;
+  }
+
+  &__warehouse-actions {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0 1rem;
+
+    img {
+      width: 1.2rem;
+      margin: 0.5rem 0;
+    }
+  }
+}
+
+.mobile-view {
+  @include tablet {
+    display: none;
+  }
 }
