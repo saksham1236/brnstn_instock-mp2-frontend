@@ -1,0 +1,204 @@
+@use '../../styles/partials/abstracts' as *;
+@use '../../styles/partials/fonts' as *;
+@use '../../styles/partials/global' as *;
+@use '../../styles/partials/grids' as *;
+// @use '../../styles/partials/reset' as *;
+
+// ---------- MAIN ----------
+.page {
+
+  &-container {
+    width: 100%;
+    height: 922px;
+    top: 136px;
+    left: 16px;
+    box-shadow: 0px 2px 5px 0px #13182C1A;
+    padding-bottom: 1.5rem;
+    
+
+
+  }
+
+  &-header {
+    border-bottom: 1px solid #bdc5d5;
+    justify-content: space-evenly;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    padding: 1.5rem;  
+      
+  }
+
+  &-header__div {
+    display: inline-flex;
+  }
+
+  &-header__button {
+   background-color: white;
+   border: none;
+
+  }
+
+  &-header__button-icon {
+    width: 24px;
+    height: 24px;
+    top: 176px;
+    left: 40px;
+
+  }
+
+  &-header__header {
+    // width: 251px;
+    // height: 36px;
+    // top: 168px;
+    // left: 72px;
+    //styleName: M H1;
+font-family: Titillium Web;
+font-size: 28px;
+font-weight: 600;
+line-height: 36px;
+letter-spacing: 0em;
+text-align: left;
+
+
+  }
+}
+
+
+// ---------- FORM ----------
+.warehouse {
+
+  &-form {
+    
+  }
+
+  &-form__div {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  &-form__header {
+    width: 162px;
+    height: 28px;
+    top: 245px;
+    left: 40px;
+    //styleName: M H2;
+font-family: Titillium Web;
+font-size: 20px;
+font-weight: 600;
+line-height: 28px;
+letter-spacing: 0em;
+text-align: left;
+
+
+  }
+
+  &-form__section--first {
+    // border-bottom: 1px solid orange;
+    display: grid;
+    justify-content: space-around;
+    padding-bottom: 1.5rem;
+
+  }
+
+  &-form__section--second {
+    display: grid;
+    justify-content: space-around;
+    padding-bottom: 1.5rem;
+
+
+  }
+
+}
+
+
+// ---------- FORM (TEXT INPUT) ----------
+.text-input {
+  
+  &__header {
+    width: 100px;
+height: 20px;
+top: 297px;
+left: 40px;
+//styleName: M H3;
+font-family: Titillium Web;
+font-size: 13px;
+font-weight: 600;
+line-height: 20px;
+letter-spacing: 0em;
+text-align: left;
+
+
+
+  }
+
+  &__input {
+    width: 295px;
+height: 36px;
+top: 321px;
+left: 40px;
+border-radius: 20px;
+border: 1px solid #BDC5D5;
+font-size: 13px;
+color: #5C667E;
+background-color: white;
+padding-left:1rem;
+
+
+
+
+
+  }
+}
+
+
+// ---------- BUTTONS ----------
+.warehouse-form__buttons {
+  width: 100%;
+  height: 68px;
+  top: 990px;
+  left: 16px;
+  border-radius: 0px, 0px, 3px, 3px;
+  background: #F7F8F9B2;
+  display: flex;
+  justify-content: center;
+  justify-content: space-evenly;
+  align-items: center;
+  
+  
+  }
+
+.button {
+
+  width: (140px);
+height: (36px);
+top: 1006px;
+left: 195px;
+padding: 8px, 51px, 8px, 51px;
+border-radius: 20px;
+gap: 10px;
+background: #2E66E5;
+border: none;
+color: white;
+
+
+
+
+}
+
+.button--cancel {
+  width: (139px);
+  height: (36px);
+  top: 1006px;
+  left: 40px;
+  padding: 8px, 51px, 8px, 51px;
+  border-radius: 20px;
+  border: 1px;
+  gap: 10px;
+  background: linear-gradient(0deg, #BDC5D5, #BDC5D5),
+linear-gradient(0deg, #FFFFFF, #FFFFFF);
+
+
+  
+}
