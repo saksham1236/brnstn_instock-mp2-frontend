@@ -2,7 +2,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./styles/App.scss";
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
-import WarehouseListPage from "./pages/WarehouseListPage/WarehouseListPage";
+import Home from "./pages/Home/Home";
 
 
 function App() {
@@ -10,7 +10,7 @@ function App() {
     <BrowserRouter>
       <Header />
       <Routes>
-        <Route path="/test" element={<WarehouseListPage />} />
+        <Route path="/" element={<Home />} />
         {/* {<Route path ="/:warehouse" element = {<Warehouse />} />} */}
         {/* {<Route path ="/:warehouse/edit" element = {<Warehouse />} />} */}
         {/* {<Route path ="/warehouse/add" element = {<AddWarehouse />} />} */}
@@ -23,6 +23,5 @@ function App() {
     </BrowserRouter>
   );
 }
-git branch -r
 
 export default App;
