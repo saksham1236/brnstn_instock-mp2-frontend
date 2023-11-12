@@ -1,37 +1,35 @@
 :root {
-    //Primary Colors
-    --Instock-Black: #13182C;
-    --Instock-Indigo: #2e66e5;
-    --White: #fff;
+  //Primary Colors
+  --Instock-Black: #13182c;
+  --Instock-Indigo: #2e66e5;
+  --White: #fff;
 
-    //Secondary Colors
-    --Slate: #5c667e;
-    --Cloud: #BDc5d5;
+  //Secondary Colors
+  --Slate: #5c667e;
+  --Cloud: #bdc5d5;
 
-    //Background Colors;
-    --Graphite:#232940;
-    --Light-Grey: #f7f8f9;
+  //Background Colors;
+  --Graphite: #232940;
+  --Light-Grey: #f7f8f9;
 
-    //Supporting Colors
-    --Green: #158463;
-    --Red: #c94515;
+  //Supporting Colors
+  --Green: #158463;
+  --Red: #c94515;
 
-    //Font Family
-    --font-family: 'Titillium Web', sans-serif;
+  //Font Family
+  --font-family: "Titillium Web", sans-serif;
 }
 
 //Mixins
 
 @mixin desktop {
-    @media(width >= 1280px) {
-      @content;
-    }
+  @media (width >= 1280px) {
+    @content;
   }
-  
-  @mixin tablet{
-      @media(width >= 768px){
-          @content
-      }
-  }
+}
 
-  
+@mixin tablet {
+  @media (width >= 768px) {
+    @content;
+  }
+}

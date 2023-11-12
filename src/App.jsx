@@ -1,16 +1,16 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import logo from './logo.svg';
-import './styles/App.scss';
+import "./styles/App.scss";
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
+import Home from "./pages/Home/Home";
 
 
 function App() {
   return (
     <BrowserRouter>
-    <Header />
+      <Header />
       <Routes>
-        {/* {<Route path ="/" element = {<Warehouse also known as home page />} />} */}
+        <Route path="/" element={<Home />} />
         {/* {<Route path ="/:warehouse" element = {<Warehouse />} />} */}
         {/* {<Route path ="/:warehouse/edit" element = {<Warehouse />} />} */}
         {/* {<Route path ="/warehouse/add" element = {<AddWarehouse />} />} */}
@@ -21,7 +21,6 @@ function App() {
       </Routes>
       <Footer />
     </BrowserRouter>
-
   );
 }
 
