@@ -1,7 +1,7 @@
 @use "../../styles/partials/abstracts" as *;
 @use "../../styles/partials/grids";
 
-.header {
+.header {  
   display: flex;
   flex-direction: column;
   background-color: var(--Graphite);
@@ -13,7 +13,7 @@
     flex-direction: row;
     padding: 1.5rem 2rem;
     justify-content: space-between;
-    height: 11.6rem;
+    height: 7.6rem;
     align-items: flex-start;
 
     @include desktop {
@@ -22,7 +22,7 @@
   }
 
   &__logo {
-    padding-bottom: .5rem;
+    padding-bottom: 0.5rem;
 
     @include tablet {
       padding-bottom: 0;
@@ -44,7 +44,7 @@
     text-decoration: none;
     color: var(--Cloud);
     border-radius: 20px;
-    padding: .5rem .5rem;
+    padding: 0.5rem 0.5rem;
     border: none;
 
     @include tablet {

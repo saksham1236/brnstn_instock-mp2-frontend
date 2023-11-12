@@ -1,0 +1,167 @@
+@import "../../styles/partials/global";
+
+:root {
+  --card-width: 65rem;
+}
+
+.title-block {
+  display: flex;
+  justify-content: center;
+  background-color: var(--Graphite);
+  width: 100%;
+  z-index: 1;
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--White);
+    z-index: 1;
+    // padding: 1.5rem 1rem;
+
+    @include tablet {
+      flex-direction: row;
+      justify-content: space-between;
+      height: 6.6rem;
+      display: flex;
+      align-items: flex-end;
+      padding: 1rem 2rem 1.5rem;
+      width: var(--card-width);
+      border-top-left-radius: 0.2rem;
+      border-top-right-radius: 0.2rem;
+    }
+
+    @include desktop {
+    }
+  }
+
+  &__title {
+    font-size: 2.2rem;
+    margin-right: auto;
+  }
+
+  &__search {
+    display: flex;
+    flex-direction: row;
+    font-size: 1rem;
+    @include tablet {
+      width: 18rem;
+      margin-right: 1.2rem;
+      padding: 0.5rem 0;
+      border: 1px solid var(--Cloud);
+      border-radius: 1.25rem;
+    }
+
+    input {
+      padding-left: 1rem;
+      border: none;
+      margin-right: auto;
+      background-color: transparent;
+    }
+
+    img {
+      padding-right: 0.5rem;
+    }
+
+    &-bar {
+      display: inline;
+    }
+  }
+
+  &__add {
+    &-button {
+      background-color: var(--Instock-Indigo);
+      color: var(--White);
+      border: none;
+      border-radius: 1.25rem;
+      padding: 0.6rem 2rem;
+      font-size: 1rem;
+    }
+  }
+}
+
+.card {
+  &__background {
+    width: 100%;
+    background-color: var(--Light-Grey);
+    display: flex;
+    justify-content: center;
+  }
+
+  &__card {
+    width: var(--card-width);
+    background-color: var(--White);
+    border-bottom-left-radius: 0.2rem;
+    border-bottom-right-radius: 0.2rem;
+    //add shadow here
+    box-shadow: 0px 0px 4px 4px rgba(0, 0, 0, 0.05);
+    z-index: 0;
+  }
+}
+
+.sort-block {
+  display: none;
+
+  @include tablet {
+    display: flex;
+    justify-content: center;
+    background-color: var(--Light-Gray);
+  }
+
+  &__container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    width: var(--card-width);
+    background-color: var(--Light-Grey);
+    color: var(--Slate);
+    font-size: 0.9rem;
+  }
+
+  &__column-header {
+    display: flex;
+
+    &:nth-of-type(1) {
+      width: 14rem;
+    }
+
+    &:nth-of-type(2) {
+      width: 16rem;
+    }
+
+    &:nth-of-type(3) {
+      width: 12rem;
+    }
+
+    &:nth-of-type(4) {
+      width: 14rem;
+    }
+
+    &:nth-of-type(5) {
+      margin-left: auto;
+      width: 4rem;
+    }
+  }
+
+  &__buttons {
+    padding-left: 0.2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+}
+
+  &__icons {
+
+    .sort-block__icon {
+        margin-top: auto;
+        width: 1rem;
+    }
+  }
+}
+
+.warehouses-block {
+  width: var(--card-width);
+}

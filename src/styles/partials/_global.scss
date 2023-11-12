@@ -1,6 +1,6 @@
-@use './reset' as*;
-@use './abstracts' as*;
-@use './grids' as*;
+@import './reset';
+@import './abstracts';
+@import './grids';
 
 //Setting root font size
 html {
