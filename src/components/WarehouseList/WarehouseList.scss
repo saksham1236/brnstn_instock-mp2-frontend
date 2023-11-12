@@ -2,6 +2,7 @@
 
 :root {
   --card-width: 65rem;
+  --card-width-tablet: 44rem;
 }
 
 .tablet-view {
@@ -34,14 +35,17 @@
       flex-direction: row;
       align-items: center;
       justify-content: space-between;
-      height: 6.6rem;
+      height: 5rem;
       display: flex;
       align-items: flex-end;
-      padding: 1rem 2rem 1.5rem;
-      width: var(--card-width);
+      padding: 1rem 1.5rem 0.7rem;
+      width: var(--card-width-tablet);
     }
 
     @include desktop {
+      height: 6.6rem;
+      padding: 1rem 2rem 1.5rem;
+      width: var(--card-width);
     }
   }
 
@@ -50,6 +54,11 @@
     padding-left: 1.5rem;
 
     @include tablet {
+      font-size: 1.9rem;
+      padding-left: 0rem;
+      margin-right: auto;
+    }
+    @include desktop {
       font-size: 2.2rem;
       padding-left: 1.5rem;
       margin-right: auto;
@@ -60,12 +69,18 @@
     @include tablet {
       display: flex;
       flex-direction: row;
-      font-size: 1rem;
-      width: 18rem;
+      font-size: 0.8rem;
+      width: 10rem;
       margin-right: 1.2rem;
-      padding: 0.5rem 0;
+      margin-bottom: 0.4rem;
+      padding: 0.2rem 0;
       border: 1px solid var(--Cloud);
       border-radius: 1.25rem;
+    }
+    @include desktop {
+      font-size: 1rem;
+      width: 18rem;
+      padding: 0.5rem 0;
     }
 
     input {
@@ -77,6 +92,15 @@
 
     img {
       padding-right: 0.5rem;
+
+      @include tablet {
+        width: 1.7rem;
+        margin-left: -3rem;
+      }
+
+      @include desktop {
+        padding-right: 0.5rem;
+      }
     }
 
     &-bar {
@@ -86,12 +110,24 @@
 
   &__add {
     &-button {
-      background-color: var(--Instock-Indigo);
-      color: var(--White);
-      border: none;
-      border-radius: 1.25rem;
-      padding: 0.6rem 2rem;
-      font-size: 1rem;
+      @include tablet {
+        background-color: var(--Instock-Indigo);
+        color: var(--White);
+        border: none;
+        border-radius: 1.25rem;
+        padding: 0.35rem 1.5rem;
+        font-size: 0.8rem;
+        font-weight: 400;
+        margin-bottom: 0.4rem;
+      }
+      @include desktop {
+        background-color: var(--Instock-Indigo);
+        color: var(--White);
+        border: none;
+        border-radius: 1.25rem;
+        padding: 0.6rem 2rem;
+        font-size: 1rem;
+      }
     }
   }
 }
@@ -113,6 +149,14 @@
     z-index: 0;
 
     @include tablet {
+      width: var(--card-width-tablet);
+      background-color: var(--White);
+      border-bottom-left-radius: 0.2rem;
+      border-bottom-right-radius: 0.2rem;
+      box-shadow: 0px 0px 4px 4px rgba(0, 0, 0, 0.05);
+      z-index: 0;
+    }
+    @include desktop {
       width: var(--card-width);
       background-color: var(--White);
       border-bottom-left-radius: 0.2rem;
@@ -183,7 +227,7 @@
   @include tablet {
     display: flex;
     justify-content: center;
-    background-color: var(--Light-Gray);
+    background-color: var(--Light-Grey);
   }
 
   &__container {
@@ -191,11 +235,18 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    padding: 1rem 2rem;
-    width: var(--card-width);
+    padding: 0.5rem 1.5rem;
+    width: var(--card-width-tablet);
     background-color: var(--Light-Grey);
     color: var(--Slate);
-    font-size: 0.9rem;
+    font-size: 0.7rem;
+    z-index: 0;
+
+    @include desktop {
+      width: var(--card-width);
+      padding: 1rem 2rem;
+      font-size: 0.9rem;
+    }
   }
 
   &__column-header {
@@ -242,6 +293,10 @@
   border-top: 0.09rem solid var(--Cloud);
 
   @include tablet {
+    width: var(--card-width-tablet);
+    z-index: 2;
+  }
+  @include desktop {
     width: var(--card-width);
   }
 
@@ -251,24 +306,50 @@
     &:first-of-type {
       border-top: none;
     }
+
+    @include tablet {
+      display: flex;
+    }
   }
 
   &__mobile-block-1 {
     display: flex;
     justify-content: space-between;
-    border: 1px solid palegreen;
+    // border: 1px solid palegreen;
     padding: 0 1rem;
+
+    @include tablet {
+      display: flex;
+      padding: initial;
+      width: 100%;
+    }
   }
 
   &__column-1 {
-    border: 1px dashed lightseagreen;
+    // border: 1px dashed lightseagreen;
     width: 45%;
+    @include tablet {
+      display: flex;
+      align-items: center;
+      width: initial;
+      flex: 1;
+      @include desktop {
+        flex: 1.1;
+      }
+    }
   }
 
   &__column-2 {
-    border: 1px dashed lightsalmon;
+    // border: 1px dashed lightsalmon;
     flex-grow: 1;
     margin-left: 0.2rem;
+
+    @include tablet {
+      display: flex;
+      align-items: center;
+      flex: 1;
+      margin-left: initial;
+    }
   }
 
   &__header {
@@ -289,6 +370,13 @@
       font-size: 0.6rem;
       font-weight: 400;
       color: var(--Instock-Black);
+
+      @include tablet {
+        font-size: 0.7rem;
+      }
+      @include desktop {
+        font-size: 0.9rem;
+      }
     }
 
     &-name {
@@ -303,11 +391,53 @@
         font-weight: 700;
         color: var(--Instock-Indigo);
       }
+
+      @include tablet {
+        flex: 1;
+        padding-left: 1.5rem;
+      }
+
+      @include desktop {
+        padding-left: 2rem;
+      }
     }
+
+    &-address {
+      @include tablet {
+        flex: 0.94;
+        padding-right: 2rem;
+        width: 2rem;
+      }
+    }
+
+    &-contact-name {
+      @include tablet {
+        flex: 1;
+        padding-left: 2.7rem;
+        width: 2rem;
+      }
+      @include desktop {
+        padding-left: 1rem;
+      }
+    }
+    &-contact-info {
+      @include tablet {
+        flex: 1;
+        width: 2rem;
+      }
+      @include desktop {
+        flex: 1.2;
+      }
+
+    }
+
   }
 
   &__mobile-block-2 {
-    border: 1px solid palevioletred;
+    // border: 1px solid palevioletred;
+    @include tablet {
+      display: initial;
+    }
   }
 
   &__warehouse-actions {
@@ -316,9 +446,21 @@
     justify-content: space-between;
     padding: 0 1rem;
 
+    @include tablet {
+      display: flex;
+      padding: initial;
+      margin-right: 2rem;
+    }
+
     img {
       width: 1.2rem;
       margin: 0.5rem 0;
+
+      @include tablet {
+        width: 2rem;
+        margin: 1.6rem 0;
+        padding-left: 0.5rem;
+      }
     }
   }
 }

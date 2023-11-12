@@ -13,10 +13,11 @@
     flex-direction: row;
     padding: 1.5rem 2rem;
     justify-content: space-between;
-    height: 7.6rem;
+    height: 6.6rem;
     align-items: flex-start;
 
     @include desktop {
+      height: 7.6rem;
       padding: 2rem 8rem;
     }
   }
