@@ -86,7 +86,7 @@ function WarehouseList({ warehousesList }) {
                       {columnHeaderArray[0]}
                     </div>
                     <div className="warehouses-block__warehouse-name">
-                      <Link to={`/warehouses/${warehouse.warehouse_name}`}>
+                      <Link to={`/warehouses/${warehouse.id}`}>
                         {warehouse.warehouse_name}<img src={chevronImg} alt="chevron icon" />
                       </Link>
                     </div>
