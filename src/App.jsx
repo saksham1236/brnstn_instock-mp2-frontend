@@ -5,6 +5,8 @@ import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
 import Home from "./pages/Home/Home";
 import AddWarehouseForm from "./components/AddWarehouse/AddWarehouse"
+import EditWarehouseForm from "./components/EditWarehouse/EditWarehouse"
+
 
 function App() {
   return (
@@ -15,6 +17,7 @@ function App() {
         {/* {<Route path ="/:warehouse" element = {<Warehouse />} />} */}
         {/* {<Route path ="/:warehouse/edit" element = {<Warehouse />} />} */}
         {<Route path ="/warehouse/add" element = {<AddWarehouseForm />} />}
+        {<Route path ="/warehouse/edit" element = {<EditWarehouseForm />} />}
         {/* {<Route path ="/inventory" element = {<Inventory />} />} */}
         {/* {<Route path ="/inventory/:item" element = {<InventoryItem />} />} */}
         {/* {<Route path ="/inventory/:item/edit" element = {<InventoryItemEdit />} />} */}
