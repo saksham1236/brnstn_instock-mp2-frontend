@@ -1,0 +1,85 @@
+@use "../../styles/partials/abstracts" as *;
+@use "../../styles/partials/grids" as *;
+// @use "../../styles/partials/fonts" as *;
+// @use "../../styles/partials/global" as *;
+// // @use "../../styles/partials/grids";
+
+.inventory {
+  width: 93%;
+  margin: auto;
+  // position: absolute;
+  // object-position: -500px;
+
+  &__page-nav {
+    display: flex;
+    flex-direction: column;
+    // padding: 1rem;
+    border-bottom: 1px solid var(--Cloud);
+
+    @include tablet {
+      flex-direction: row;
+      justify-content: space-between;
+    }
+  }
+
+  &__title {
+    font-family: Titillium Web;
+    font-size: 1.75rem;
+    font-style: normal;
+    font-weight: 600;
+    padding-bottom: 1rem;
+    margin-left: 1rem;
+  }
+
+  &__cta-container {
+    display: flex;
+    flex-direction: column;
+
+    @include tablet {
+      flex-direction: row;
+    }
+  }
+
+  &__search-bar {
+    width: 95%;
+    height: 2.25rem;
+    // flex-shrink: 0;
+    border-radius: 1.25rem;
+    border: 1px solid var(--Cloud, #BDC5D5);
+    // background-color: var(--White, #FFF);
+    background-image: url(../../assets/Icons/search-24px.svg);
+    background-repeat: no-repeat;
+    background-position: 95%;
+    background-size: 24px;
+    margin: 0 1rem 1rem;
+    
+    @include tablet {
+      width: 11.5625rem;
+      height: 2.375rem;
+    }
+  }
+
+  &__search-bar::placeholder {
+    color: var(--Slate);
+  }
+
+  &__button {
+    background-color: var(--Instock-Indigo);
+    border: none;
+    border-radius: 1.25rem;
+    height: 2.25rem;
+    width: 95%;
+    margin: 0 1rem 1.5rem;
+
+    @include tablet {
+      width: 7rem;
+    }
+  }
+
+  &__button-text {
+    color: var(--White);
+    font-size: 0.8125rem;
+    // background-image: url(../../assets/Icons/);
+  }
+
+}
