@@ -198,7 +198,8 @@
 }
 
 // ---------- BUTTONS  ----------
-.button {
+.btn {
+	width: 140px;
 	height: 36px;
 	top: 1006px;
 	left: 195px;
@@ -208,9 +209,13 @@
 	background: #2e66e5;
 	border: none;
 	color: white;
+	margin: 0;
+	font-size: 13px;
+
 
 	@media screen and (min-width: 768px) {
 		padding: 5px 16px 5px 16px;
+		width: 155px;
 	}
 
 	@media screen and (min-width: 1280px) {
@@ -220,7 +225,7 @@
 	}
 }
 
-.button--cancel {
+.btn--cancel {
 	width: 8.7rem;
 	height: 36px;
 	padding: 8px 51px 8px 51px;
@@ -228,6 +233,13 @@
 	border: 1px solid #bdc5d5;
 	color: #5c667e;
 	background-color: white;
+	&:hover {
+    color: #2E66E5;
+    background-color: white;
+    border-color: #2E66E5;
+		font-size: 13px;
+
+	}
 
 	@media screen and (min-width: 768px) {
 		padding: 5px 16px 5px 16px;
@@ -259,6 +271,7 @@
 
 // ---------- ACTIVE STATE  ----------
 input:focus {
-  outline: none !important;
-  border: 1px solid #2E66E5 !important;
-  }
+	outline: none !important;
+	border: 1px solid #2e66e5 !important;
+}
+
