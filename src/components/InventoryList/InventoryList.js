@@ -40,12 +40,18 @@ function InventoryList({ inventoryList }) {
   //   }
   // })
 
-  const inStock = inventoryList.filter(item => {
+  // const inStock = inventoryList.filter(item => {
 
-    return item.quantity === 0
-    // setInStock(false);
+  //   return item.quantity === 0
+  //   // setInStock(false);
+  // }
+  // )
+
+  const inStock = () => {
+    const isInStock = inventoryList.filter(item => item.quantity !== 0);
+    console.log(isInStock);
+    return isInStock;
   }
-  )
 
 
 
