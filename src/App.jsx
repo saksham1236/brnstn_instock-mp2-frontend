@@ -2,7 +2,8 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./styles/App.scss";
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
-import Home from "./pages/Home/Home";
+import Home from "./pages/home/Home";
+import Inventory from './pages/inventory/Inventory'
 
 
 function App() {
@@ -14,7 +15,7 @@ function App() {
         {/* {<Route path ="/:warehouse" element = {<Warehouse />} />} */}
         {/* {<Route path ="/:warehouse/edit" element = {<Warehouse />} />} */}
         {/* {<Route path ="/warehouse/add" element = {<AddWarehouse />} />} */}
-        {/* {<Route path ="/inventory" element = {<Inventory />} />} */}
+        {<Route path ="/inventory" element = {<Inventory />} />}
         {/* {<Route path ="/inventory/:item" element = {<InventoryItem />} />} */}
         {/* {<Route path ="/inventory/:item/edit" element = {<InventoryItemEdit />} />} */}
         {/* {<Route path ="/inventory/add" element = {<AddInventory />} />} */}
