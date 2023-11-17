@@ -46,34 +46,43 @@ function InventoryDetails(props) {
 				<section className='card-container__background'>
 					<div className='card-container__card'>
 						<div className='inventory__details__container'>
-							<div className='inventory__details__description inventory__details__tab'>
-								<h4 className='label'>ITEM DESCRIPTION:</h4>
-								<p className='inventory__details__description__text p2'>
-									{itemData.description}
-								</p>
+							<div className='inventory__details__column'>
+								<div className='inventory__details__description inventory__details__tab'>
+									<h4 className='label'>ITEM DESCRIPTION:</h4>
+									<p className='inventory__details__description__text p2'>
+										{itemData.description}
+									</p>
+								</div>
+
+								<div className='inventory__details__category inventory__details__tab'>
+									<h4 className='label'>CATEGORY</h4>
+									<p className='inventory__details__category__text p2'>
+										{itemData.category}
+									</p>
+								</div>
 							</div>
 
-							<div className='inventory__details__category inventory__details__tab'>
-								<h4 className='label'>CATEGORY</h4>
-								<p className='inventory__details__category__text p2'>
-									{itemData.category}
-								</p>
-							</div>
-							<div class='inventory__details__stats'>
-								<div className='inventory__details__status inventory__details__tab'>
-									<h4 className='label'>STATUS:</h4>
-									<TagEl type={itemData.status} />
+							<div className='inventory__details__column'>
+								<div class='inventory__details__stats'>
+									<div className='inventory__details__status inventory__details__tab'>
+										<h4 className='label'>STATUS:</h4>
+										<TagEl type={itemData.status} />
+									</div>
+
+									<div className='inventory__details__quantity inventory__details__tab'>
+										<h4 className='label'>QUANTITY:</h4>
+										<p className='p2'>
+											{itemData.quantity}
+										</p>
+									</div>
 								</div>
 
 								<div className='inventory__details__quantity inventory__details__tab'>
-									<h4 className='label'>QUANTITY:</h4>
-									<p>{itemData.quantity}</p>
+									<h4 className='label'>WAREHOUSE:</h4>
+									<p className='p2'>
+										{itemData.warehouse_name}
+									</p>
 								</div>
-							</div>
-
-							<div className='inventory__details__quantity inventory__details__tab'>
-								<h4 className='label'>WAREHOUSE:</h4>
-								<p>{itemData.warehouse_name}</p>
 							</div>
 						</div>
 					</div>

@@ -29,12 +29,11 @@ body, p, h1, h2, h3, .page-header, .sub-header, button, .button, .label, .link {
 }
 
 .link, h3, .p2 {
-    font-size: 0.875rem;
-    line-height: 1.375rem;
-
+    font-size: 0.813rem;
+    line-height: 1.25rem;
     @include tablet {
-        font-size: 0.813rem;
-        line-height: 1.25rem;
+        font-size: 0.875rem;
+        line-height: 1.375rem;
     }
 }
 

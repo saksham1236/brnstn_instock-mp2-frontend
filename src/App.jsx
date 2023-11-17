@@ -5,7 +5,7 @@ import Footer from "./components/Footer/Footer";
 import Home from "./pages/home/Home";
 import AddWarehouseForm from "./components/AddWarehouse/AddWarehouse"
 import EditWarehouseForm from './components/EditWarehouse/EditWarehouse';
-import InventoryDetails from './pages/InventoryDetails/InventoryDetails';
+import InventoryDetails from './components/InventoryDetails/InventoryDetails';
 
 
 function App() {
