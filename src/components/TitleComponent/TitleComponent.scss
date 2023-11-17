@@ -1,6 +1,6 @@
 @use '../../styles/partials/abstracts' as*;
 
-.title-block {
+.header-block {
     display: flex;
     justify-content: center;
     background-color: var(--Graphite);
@@ -14,10 +14,10 @@
       align-items: center;
       background-color: var(--White);
       width: 87%;
-      height: 3.5rem;
       border-top-left-radius: 0.2rem;
       border-top-right-radius: 0.2rem;
       z-index: 1;
+      padding: 1rem;
   
       @include tablet {
         flex-direction: row;
@@ -37,10 +37,16 @@
       }
     }
 
+    .header-edit {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+    }
+
     &__back-button {
         display: flex;
         align-items: center;
-        margin-top: 0.25rem;
+        margin-top: 0.2rem;
     }
 
     &__title {
@@ -50,36 +56,35 @@
       column-gap: 0.5rem;
       font-size: 1.45rem;
       padding-left: 0;
-  
+
       @include tablet {
-        font-size: 1.9rem;
         padding-left: 0rem;
         margin-right: auto;
       }
       @include desktop {
-        font-size: 2.2rem;
         padding-left: 0rem;
         margin-right: auto;
       }
     }
   
     &__search {
+      display: flex;
+      width: 100%;
+      flex-direction: row;
+      font-size: 0.875rem;
+      font-weight: 400;
+      padding: 0.5rem 0;
+      margin: 1rem 1rem;
+      border: 1px solid var(--Cloud);
+      border-radius: 1.25rem;
+
       @include tablet {
-        display: flex;
-        flex-direction: row;
-        font-size: 0.8rem;
-        font-weight: 400;
         width: 10rem;
         margin-right: 1.2rem;
-        margin-bottom: 0.4rem;
-        padding: 0.2rem 0;
-        border: 1px solid var(--Cloud);
-        border-radius: 1.25rem;
       }
+
       @include desktop {
-        font-size: 1rem;
         width: 18rem;
-        padding: 0.5rem 0;
       }
   
       input {
