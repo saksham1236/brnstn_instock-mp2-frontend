@@ -143,14 +143,9 @@ function InventoryList({ inventoryList }) {
                     </div>
 
                     <div className="inventory-block__inventory-status">
-                      {/* <div className={`inventory-block__inventory-status-tag ${inStock() ? 
-                      "inventory-block__inventory-status--in-stock" :
-                       "inventory-block__inventory-status--no-stock"
-                      }`}> */}
-                      <div className={`inventory-block__inventory-status-tag ${inStock() ?
+                      <div className={`inventory-block__inventory-status-tag ${inventoryItem.quantity !== 0 ?
                         "inventory-block__inventory-status--in-stock" :
-                        "inventory-block__inventory-status--no-stock"
-                        }`}>
+                        "inventory-block__inventory-status--no-stock"}`}>
                         {inventoryItem.status}
                       </div>
                     </div>
@@ -158,7 +153,7 @@ function InventoryList({ inventoryList }) {
                     <div className="inventory-block__header mobile-view">
                       {columnHeaderArray[3]}
                     </div>
-                    <div className="inventory-block__inventory-quantity">
+                    <div className="inventory-block__inventory-quantity-container">
                       <div className="inventory-block__inventory-quantity">
                         {inventoryItem.quantity}
                       </div>
@@ -168,7 +163,9 @@ function InventoryList({ inventoryList }) {
                       {columnHeaderArray[4]}
                     </div>
                     <div className="inventory-block__inventory-warehouse-name">
+                    <div className="inventory-block__inventory-warehouse-column">
                       {inventoryItem.warehouse_name}
+                    </div>
                     </div>
                   </div>
                 </div>

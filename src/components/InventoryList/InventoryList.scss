@@ -280,7 +280,9 @@
 
     &:nth-of-type(1) {
       width: 9.8rem;
-
+      @include tablet {
+        width: 10.3rem;
+      }
       @include desktop {
         width: 14.5rem;
       }
@@ -288,6 +290,9 @@
 
     &:nth-of-type(2) {
       width: 9.5rem;
+      @include tablet {
+        width: 9rem;
+      }
       @include desktop {
         width: 13rem;
       }
@@ -295,6 +300,9 @@
 
     &:nth-of-type(3) {
       width: 7.5rem;
+      @include tablet {
+        width: 8rem;
+      }
       @include desktop {
         width: 11rem;
       }
@@ -450,7 +458,7 @@
       }
 
       @include tablet {
-        flex: 0.9;
+        flex: 1;
         padding-left: 1.5rem;
       }
 
@@ -466,43 +474,44 @@
         padding-right: 1.8rem;
         width: 1.5rem;
       }
+      @include desktop {
+        flex: .7;
+      }
     }
 
     &-status {
       text-transform: uppercase;
       @include tablet {
-        flex: 1.1;
-        padding-left: 0.6rem;
+        flex: 1;
         width: 2rem;
         height: 24px;
       }
       @include desktop {
         flex: 1.5;
-        padding-left: 1rem;
+        padding-left: .7rem;
       }
     }
 
     &-quantity {
       @include tablet {
-        flex: .6;
+        flex: 0;
         width: 2rem;
-        padding-left: 0.6rem;
       }
       @include desktop {
-        flex: .8;
+        flex: 1;
         padding-left: 0rem;
       }
     }
 
     &-warehouse-name {
       @include tablet {
-        flex: 1.2;
+        flex: .9;
         width: 2rem;
-        padding-left: 0.6rem;
+        padding-left: 2rem;
       }
       @include desktop {
-        flex: 1.9;
-        padding-left: 0rem;
+        flex: 1.85;
+        padding-left: 4rem;
       }
     }
   }
@@ -520,11 +529,20 @@
     background-color: rgb(21, 132, 99, 0.07);
     color: var(--Green);
     width: 3.5rem;
+
+    @include tablet {
+      width: 4.7rem;
+    }
   }
 
   &__inventory-status--no-stock {
     background-color: rgb(201, 69, 21, 0.07);
     color: var(--Red);
+    width: 4.9rem;
+
+    @include tablet {
+      width: 6.7rem;
+    }
   }
 
   &__mobile-block-2 {
