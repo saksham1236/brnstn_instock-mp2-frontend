@@ -18,43 +18,6 @@ function InventoryList({ inventoryList }) {
     "Actions"
   ];
 
-  // const [inStock, setInStock] = useState(0);
-  // const [outOfStock, setOutOfStock] = useState(0);
-
-  // console.log(inventoryList[0].quantity);
-  console.log(inventoryList);
-
-  // function inStock() {
-  //   if (inventoryList.quantity === 0) {
-  //     return true;
-  //   }
-  // }
-
-  // const inStock = inventoryList.filter(item => {
-  //   if (item.status === "In Stock") {
-  //     setInStock(true);
-  //   }
-
-  //   if (item.status === "Out of Stock") {
-  //     setOutOfStock(true);
-  //   }
-  // })
-
-  // const inStock = inventoryList.filter(item => {
-
-  //   return item.quantity === 0
-  //   // setInStock(false);
-  // }
-  // )
-
-  const inStock = () => {
-    const isInStock = inventoryList.filter(item => item.quantity !== 0);
-    console.log(isInStock);
-    return isInStock;
-  }
-
-
-
   return (
     <>
       <div className="title-block">
