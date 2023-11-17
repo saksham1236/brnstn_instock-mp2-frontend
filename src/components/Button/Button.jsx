@@ -4,17 +4,36 @@ import editIcon from "../../assets/Icons/edit-24px.svg";
 
 /**
  * Renders the button component, if icon provided will also render the icon.
- * @param {title, icon, iconAlt, type {cancel | delete | edit}, buttonName, buttonLink, onClick, ...rest} props
+ * @param {title, icon, iconAlt, buttontType {cancel | delete | edit}, buttonName, buttonLink, onClick, ...rest} props
  * @returns Button Element
  */
 function ButtonEl(props) {
-	const { title, icon, iconAlt, type, buttonName, link, onClick, ...rest } =
-		props;
-	if (link) {
+	const { title, icon, iconAlt, buttonType, buttonName, link, onClick, ...rest } = props;
+	if (buttonType === "edit") {
 		return (
-			<Link to={link}>
+			<Link
+				to={link}
+				className='noUnderline'>
 				<button
-					className='buttonEl'
+					className='buttonEl edit'
+					name={buttonName}
+					onClick={onClick}
+					{...rest}>
+					<img
+						className='button__icon'
+						src={editIcon}
+						alt={iconAlt}
+					/>
+					<div className = "button__title edit__button__title">
+						{title}
+					</div>
+				</button>
+			</Link>
+		); } else if (link) {
+		return (
+			<Link to={link} className="noUnderline">
+				<button
+					className={`buttonEl ${buttonType}`}
 					name={buttonName}
 					onClick={onClick}
 					{...rest}>
@@ -25,33 +44,17 @@ function ButtonEl(props) {
 							alt={iconAlt}
 						/>
 					)}
+					<div className = "button__title">
 					{title}
-				</button>
-			</Link>
-		);
-	} else if (type === "edit") {
-		return (
-			<Link
-				to={link}
-				className='noUnderline'>
-				<button
-					className='buttonEl'
-					name={buttonName}
-					onClick={onClick}
-					{...rest}>
-					<img
-						className='button__icon'
-						src={editIcon}
-						alt={iconAlt}
-					/>
-					Edit
+					</div>
+					
 				</button>
 			</Link>
 		);
 	} else {
 		return (
 			<button
-				className={`buttonEl ${type}`}
+				className={`buttonEl ${buttonType}`}
 				name={buttonName}
 				onClick={onClick}
 				{...rest}>
@@ -62,7 +65,9 @@ function ButtonEl(props) {
 						alt={iconAlt}
 					/>
 				)}
-				{title}
+					<div className = "button__title">
+						{title}
+					</div>
 			</button>
 		);
 	}
