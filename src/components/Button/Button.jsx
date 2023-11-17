@@ -9,29 +9,7 @@ import editIcon from "../../assets/Icons/edit-24px.svg";
  */
 function ButtonEl(props) {
 	const { title, icon, iconAlt, buttonType, buttonName, link, onClick, ...rest } = props;
-	if (link) {
-		return (
-			<Link to={link}>
-				<button
-					className='buttonEl'
-					name={buttonName}
-					onClick={onClick}
-					{...rest}>
-					{icon && (
-						<img
-							className='button__icon'
-							src={icon}
-							alt={iconAlt}
-						/>
-					)}
-					<div className = "button__title">
-					{title}
-					</div>
-					
-				</button>
-			</Link>
-		);
-	} else if (buttonType === "edit") {
+	if (buttonType === "edit") {
 		return (
 			<Link
 				to={link}
@@ -49,6 +27,27 @@ function ButtonEl(props) {
 					<div className = "button__title edit__button__title">
 						{title}
 					</div>
+				</button>
+			</Link>
+		); } else if (link) {
+		return (
+			<Link to={link} className="noUnderline">
+				<button
+					className={`buttonEl ${buttonType}`}
+					name={buttonName}
+					onClick={onClick}
+					{...rest}>
+					{icon && (
+						<img
+							className='button__icon'
+							src={icon}
+							alt={iconAlt}
+						/>
+					)}
+					<div className = "button__title">
+					{title}
+					</div>
+					
 				</button>
 			</Link>
 		);
