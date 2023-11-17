@@ -1,0 +1,19 @@
+.inventory__details {
+    &__container {
+        display: flex;
+        flex-direction: column;
+        row-gap: 1rem;
+    }
+
+    &__tab {
+        display: inherit;
+        flex-direction: column;
+        row-gap: 0.25rem;
+        flex: 1 1 auto;
+    }
+
+    &__stats {
+        display: inherit;
+        flex-direction: row;
+    }
+}

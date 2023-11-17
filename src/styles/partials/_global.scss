@@ -6,3 +6,42 @@
 html {
     font-size: 16px;
 }
+
+.card-container {
+    &__background {
+        padding: 0;
+        width: 100%;
+        background-color: var(--Light-Grey);
+        display: flex;
+        justify-content: center;
+      }
+    
+      &__card {
+        width: 87%;
+        padding: 1.5rem;
+        background-color: var(--White);
+        border-bottom-left-radius: 0.2rem;
+        border-bottom-right-radius: 0.2rem;
+        box-shadow: 0px 0px 4px 4px rgba(0, 0, 0, 0.05);
+        z-index: 0;
+    
+        @include tablet {
+          width: var(--card-width-tablet);
+          padding: 2rem;
+          background-color: var(--White);
+          border-bottom-left-radius: 0.2rem;
+          border-bottom-right-radius: 0.2rem;
+          box-shadow: 0px 0px 4px 4px rgba(0, 0, 0, 0.05);
+          z-index: 0;
+        }
+        @include desktop {
+          width: var(--card-width);
+          padding: 2.5rem;
+          background-color: var(--White);
+          border-bottom-left-radius: 0.2rem;
+          border-bottom-right-radius: 0.2rem;
+          box-shadow: 0px 0px 4px 4px rgba(0, 0, 0, 0.05);
+          z-index: 0;
+        }
+      }
+}

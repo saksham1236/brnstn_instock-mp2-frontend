@@ -3,6 +3,7 @@
 .button,
 .buttonEl {
 	font-size: 0.875rem;
+	font-weight: 600;
 	line-height: 1.375rem;
 	display: flex;
 	color: var(--White);
@@ -38,6 +39,7 @@
 	border: 1px solid var(--Graphite);
 
 	&:hover {
+		background-color: var(--Cloud);
 		border: 1px solid var(--Instock-Indigo);
 	}
 }
@@ -58,6 +60,10 @@
 .delete {
 	color: var(--White);
 	background-color: var(--Red);
+
+	&:hover {
+		background-color: color-mix(in srgb, black 50%, var(--Red) 100%);
+	}
 }
 
 .noUnderline {
