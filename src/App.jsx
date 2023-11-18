@@ -1,14 +1,16 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import logo from './logo.svg';
+import { BrowserRouter, Routes, Route, useParams } from "react-router-dom";
 import './styles/App.scss';
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
-import Home from "./pages/Home/Home";
-import AddWarehouseForm from "./components/AddWarehouse/AddWarehouse"
-import EditWarehouseForm from "./components/EditWarehouse/EditWarehouse"
-
+import Home from "./pages/home/Home";
+import AddWarehouseForm from "./components/AddWarehouse/AddWarehouse";
+import EditWarehouseForm from './components/EditWarehouse/EditWarehouse';
+import InventoryDetails from './components/InventoryDetails/InventoryDetails';
+import EditInventoryForm from "./components/EditInventory/EditInventory";
+import Inventory from "./pages/inventory/Inventory"
 
 function App() {
+  let { itemId } = useParams();
   return (
     <BrowserRouter>
       <Header />
@@ -18,9 +20,9 @@ function App() {
         {/* {<Route path ="/:warehouse/edit" element = {<Warehouse />} />} */}
         {<Route path ="/warehouse/add" element = {<AddWarehouseForm />} />}
         {<Route path ="/warehouse/edit" element = {<EditWarehouseForm />} />}
-        {/* {<Route path ="/inventory" element = {<Inventory />} />} */}
-        {/* {<Route path ="/inventory/:item" element = {<InventoryItem />} />} */}
-        {/* {<Route path ="/inventory/:item/edit" element = {<InventoryItemEdit />} />} */}
+        {<Route path ="/inventory" element = {<Inventory />} />}
+        <Route path ="/inventory/:itemId" element = {<InventoryDetails />} />
+        {<Route path ="/inventory/:itemId/edit" element = {<EditInventoryForm />} />}
         {/* {<Route path ="/inventory/add" element = {<AddInventory />} />} */}
       </Routes>
       <Footer />
