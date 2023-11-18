@@ -1,26 +1,28 @@
 import React from "react";
-import "./WarehouseList.scss";
+import "./InventoryList.scss";
 import { Link } from "react-router-dom";
 import sortImg from "../../assets/Icons/sort-24px.svg";
 import searchImg from "../../assets/Icons/search-24px.svg";
 import deleteImg from "../../assets/Icons/delete_outline-24px.svg";
 import editImg from "../../assets/Icons/edit-24px.svg";
 import chevronImg from "../../assets/Icons/chevron_right-24px.svg";
+import { useState } from "react";
 
-function WarehouseList({ warehousesList }) {
+function InventoryList({ inventoryList }) {
   const columnHeaderArray = [
+    "Inventory Item",
+    "Category",
+    "Status",
+    "Qty",
     "Warehouse",
-    "Address",
-    "Contact Name",
-    "Contact Information",
-    "Actions",
+    "Actions"
   ];
 
   return (
     <>
       <div className="title-block">
         <div className="title-block__container">
-          <div className="title-block__title">Warehouses</div>
+          <div className="title-block__title"><h1>Inventory</h1></div>
           <div className="title-block__search tablet-view">
             <input
               type="text"
@@ -31,7 +33,7 @@ function WarehouseList({ warehousesList }) {
           </div>
           <div className="title-block__add tablet-view">
             <button className="title-block__add-button">
-              + Add New Warehouse
+              + Add New Item
             </button>
           </div>
         </div>
@@ -51,7 +53,7 @@ function WarehouseList({ warehousesList }) {
 
             <div className="search-block__add">
               <button className="search-block__add-button">
-                + Add New Warehouse
+                + Add New Item
               </button>
             </div>
           </div>
@@ -61,7 +63,7 @@ function WarehouseList({ warehousesList }) {
               {columnHeaderArray.map((columnHeader, index) => (
                 <div className="sort-block__column-header">
                   <div className="sort-block__header">{columnHeader}</div>
-                  {index !== 4 && (
+                  {index !== 5 && (
                     <div className="sort-block__buttons">
                       <div className="sort-block__icons">
                         <img
@@ -77,55 +79,66 @@ function WarehouseList({ warehousesList }) {
             </div>
           </div>
 
-          <div className="warehouses-block">
-            {warehousesList.map((warehouse) => (
-              <div key={warehouse.id} className="warehouses-block__row">
-                <div className="warehouses-block__mobile-block-1">
-                  <div className="warehouses-block__column-1">
-                    <div className="warehouses-block__header mobile-view">
+          <div className="inventory-block">
+            {inventoryList.map((inventoryItem) => (
+              <div key={inventoryItem.id} className="inventory-block__row">
+                <div className="inventory-block__mobile-block-1">
+                  <div className="inventory-block__column-1">
+                    <div className="inventory-block__header mobile-view">
                       {columnHeaderArray[0]}
                     </div>
-                    <div className="warehouses-block__warehouse-name">
-                      <Link to={`/warehouses/${warehouse.id}`}>
-                        {warehouse.warehouse_name}<img src={chevronImg} alt="chevron icon" />
+                    <div className="inventory-block__inventory-name">
+                      <Link to={`/inventory/${inventoryItem.id}`}>
+                        {inventoryItem.item_name}<img src={chevronImg} alt="chevron icon" />
                       </Link>
                     </div>
-                    <div className="warehouses-block__header mobile-view">
+                    <div className="inventory-block__header mobile-view">
                       {columnHeaderArray[1]}
                     </div>
 
-                    <div className="warehouses-block__warehouse-address">
-                      {warehouse.address}, {warehouse.city}, {warehouse.country}
+                    <div className="inventory-block__inventory-category">
+                      {inventoryItem.category}
                     </div>
                   </div>
-                  <div className="warehouses-block__column-2">
-                    <div className="warehouses-block__header mobile-view">
+                  <div className="inventory-block__column-2">
+                    <div className="inventory-block__header mobile-view">
                       {columnHeaderArray[2]}
                     </div>
-                    <div className="warehouses-block__warehouse-contact-name">
-                      {warehouse.contact_name}
+
+                    <div className="inventory-block__inventory-status">
+                      <div className={`inventory-block__inventory-status-tag ${inventoryItem.quantity !== 0 ?
+                        "inventory-block__inventory-status--in-stock" :
+                        "inventory-block__inventory-status--no-stock"}`}>
+                        {inventoryItem.status}
+                      </div>
                     </div>
 
-                    <div className="warehouses-block__header mobile-view">
+                    <div className="inventory-block__header mobile-view">
                       {columnHeaderArray[3]}
                     </div>
-                    <div className="warehouses-block__warehouse-contact-info">
-                      <div className="warehouses-block__warehouse-contact-number">
-                        {warehouse.contact_phone}
+                    <div className="inventory-block__inventory-quantity-container">
+                      <div className="inventory-block__inventory-quantity">
+                        {inventoryItem.quantity}
                       </div>
-                      <div className="warehouses-block__warehouse-contact-email">
-                        {warehouse.contact_email}
-                      </div>
+                    </div>
+
+                    <div className="inventory-block__header mobile-view">
+                      {columnHeaderArray[4]}
+                    </div>
+                    <div className="inventory-block__inventory-warehouse-name">
+                    <div className="inventory-block__inventory-warehouse-column">
+                      {inventoryItem.warehouse_name}
+                    </div>
                     </div>
                   </div>
                 </div>
 
-                <div className="warehouses-block__mobile-block-2">
-                  <div className="warehouses-block__warehouse-actions">
-                    <div className="warehouses-block__warehouse-actions-delete">
+                <div className="inventory-block__mobile-block-2">
+                  <div className="inventory-block__inventory-actions">
+                    <div className="inventory-block__inventory-actions-delete">
                       <img src={deleteImg} alt="delete icon" />
                     </div>
-                    <div className="warehouses-block__warehouse-actions-edit">
+                    <div className="inventory-block__inventory-actions-edit">
                       <img src={editImg} alt="edit icon" />
                     </div>
                   </div>
@@ -139,4 +152,4 @@ function WarehouseList({ warehousesList }) {
   );
 }
 
-export default WarehouseList;
+export default InventoryList;

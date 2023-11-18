@@ -1,28 +1,3 @@
-:root {
-  //Primary Colors
-  --Instock-Black: #13182c;
-  --Instock-Indigo: #2e66e5;
-  --White: #fff;
-
-  //Secondary Colors
-  --Slate: #5c667e;
-  --Cloud: #bdc5d5;
-
-  //hover row colour
-  --Light-Blue: #eef2f8;
-
-  //Background Colors;
-  --Graphite: #232940;
-  --Light-Grey: #f7f8f9;
-
-  //Supporting Colors
-  --Green: #158463;
-  --Red: #c94515;
-
-  //Font Family
-  --font-family: "Titillium Web", sans-serif;
-}
-
 //Mixins
 
 @mixin desktop {
