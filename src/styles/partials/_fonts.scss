@@ -19,12 +19,13 @@ body, p, h1, h2, h3, .page-header, .sub-header, button, .button, .label, .link {
 
 .sub-header, h2 {
     font-weight: 600;
-    font-size: 1.5rem;
-    line-height: 2.5rem;
+    font-size: 1.25rem;
+    line-height: 1.75rem;
 
     @include tablet {
-        font-size: 1.25rem;
-        line-height: 1.75rem;
+        font-size: 1.5rem;
+        line-height: 2.5rem;
+
     }
 }
 
