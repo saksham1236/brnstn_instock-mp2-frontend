@@ -1,0 +1,30 @@
+.inputEl {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  row-gap: 0.25rem;
+  padding-bottom: 1rem;
+}
+.inputEl-dropdown {
+  position: relative;
+}
+.inputEl__dropdown {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  display: flex;
+  border: 1px solid var(--Cloud);
+  border-radius: 1.25rem;
+  padding: 0.5rem 1rem;
+  width: 100%;
+}
+.inputEl__dropdown:focus, .inputEl__dropdown:focus-visible {
+  outline: none;
+  border: 1px solid var(--Instock-Indigo);
+}
+.inputEl__dropdown__icon {
+  position: absolute;
+  top: 25%;
+  right: 1rem;
+  pointer-events: none;
+}/*# sourceMappingURL=Dropdown.css.map */
