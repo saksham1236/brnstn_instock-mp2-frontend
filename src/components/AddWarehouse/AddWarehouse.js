@@ -21,8 +21,7 @@ const regexEmail = new RegExp(
 );
 
 export default function AddWarehouseForm() {
-  // to be used when api is implemented
-  // const navigate = useNavigate()
+  const navigate = useNavigate();
 
   const [error, setError] = useState({});
 
@@ -94,7 +93,11 @@ export default function AddWarehouseForm() {
     e.preventDefault();
     if (validateForm()) {
       axios.post('http://localhost:8080/warehouses', formData)
-      .then(response => console.log(response.data))
+      .then(response => {
+        console.log(response.data)
+        alert('Warehouse Added Successfully! 🚀');
+        navigate(-1);
+      })
       .catch(error => console.error('Error:', error));
     }
   };
