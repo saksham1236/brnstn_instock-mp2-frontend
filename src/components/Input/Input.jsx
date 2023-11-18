@@ -13,7 +13,7 @@ function InputComponent(props) {
 		case "text":
 				return (
 					<div className={`inputEl ${customClasses ? customClasses : ""}`}>
-						<label className="inputEl__label label" for={fieldName}>
+						<label className="inputEl__label label" htmlFor={fieldName}>
 							<h3>{labelName}</h3>
 						</label>
 						<input id = {fieldName} className="inputEl__field" type={type} name={fieldName} placeholder= {defaultValue} {...rest}></input>
@@ -23,7 +23,7 @@ function InputComponent(props) {
 		case "textarea":
 			return (
 				<div className={`inputEl ${customClasses ? customClasses : ""}`}>
-					<label className="inputEl__label label" for={fieldName}>
+					<label className="inputEl__label label" htmlFor={fieldName}>
 						<h3>{labelName}</h3>
 					</label>
 					<textarea rows = "5" id = {fieldName} className="inputEl__field" type={type} name={fieldName} placeholder= {defaultValue} {...rest}></textarea>

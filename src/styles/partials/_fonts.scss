@@ -28,7 +28,7 @@ body, p, h1, h2, h3, .page-header, .sub-header, button, .button, .label, .link {
     }
 }
 
-.link, h3, .p2 {
+.link, h3, .p2, .inputEl {
     font-size: 0.813rem;
     line-height: 1.25rem;
     @include tablet {
