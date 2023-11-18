@@ -20,11 +20,11 @@ function ButtonEl(props) {
 					onClick={onClick}
 					{...rest}>
 					<img
-						className='button__icon'
+						className='buttonEl__icon'
 						src={editIcon}
 						alt={iconAlt}
 					/>
-					<div className = "button__title edit__button__title">
+					<div className = "buttonEl__title edit__button__title">
 						{title}
 					</div>
 				</button>
@@ -39,12 +39,12 @@ function ButtonEl(props) {
 					{...rest}>
 					{icon && (
 						<img
-							className='button__icon'
+							className='buttonEl__icon'
 							src={icon}
 							alt={iconAlt}
 						/>
 					)}
-					<div className = "button__title">
+					<div className = "buttonEl__title">
 					{title}
 					</div>
 					
@@ -60,12 +60,12 @@ function ButtonEl(props) {
 				{...rest}>
 				{icon && (
 					<img
-						className='button__icon'
+						className='buttonEl__icon'
 						src={icon}
 						alt={iconAlt}
 					/>
 				)}
-					<div className = "button__title">
+					<div className = "buttonEl__title">
 						{title}
 					</div>
 			</button>
