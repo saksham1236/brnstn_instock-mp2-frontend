@@ -7,6 +7,8 @@ import InventoryDetails from './components/InventoryDetails/InventoryDetails';
 import Inventory from "./pages/inventory/Inventory";
 import WarehouseDetails from "./components/WarehouseDetails/WarehouseDetails";
 import EditInventoryForm from "./components/EditInventory/EditInventory";
+import Inventory from "./pages/inventory/Inventory"
+import AddInventoryForm from "./components/AddInventory/AddInventory";
 import AddWarehouseForm from "./components/AddWarehouse/AddWarehouse";
 import EditWarehouseForm from './components/EditWarehouse/EditWarehouse';
 import InventoryDetails from './components/InventoryDetails/InventoryDetails';
