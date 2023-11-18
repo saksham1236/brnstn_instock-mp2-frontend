@@ -1,5 +1,5 @@
 //Styles Import
-import "./EditInventory.scss";
+import "./AddInventory.scss";
 //Component Imports
 import TitleComponent from "../TitleComponent/TitleComponent";
 import InputComponent from "../Input/Input";
@@ -13,10 +13,11 @@ import { useParams, useNavigate } from "react-router-dom";
 /**
  * 
  * @param {*} props 
- * @returns Renders Edit Inventory Form component
+ * @returns Renders Add Inventory Form component
  */
 
 function AddInventory(props) {
+    
 	const params = useParams();
 	const [itemData, setItemData] = useState();
 	const navigate = useNavigate();
@@ -46,7 +47,7 @@ function AddInventory(props) {
 				<section className='card-container__background'>
 					<div className='card-container__card'>
 						<div className='inventory-edit__container'>
-							<form className='inventory-edit__form' onSubmit={editFormHandler}>
+							<form className='inventory-edit__form' onSubmit={addFormHandler}>
 								<div className='inventory-edit__form__row'>
 									<div className='inventory-edit__form__column'>
 										<h2 className='inventory-edit__form__header'>
@@ -121,4 +122,4 @@ function AddInventory(props) {
 	}
 }
 
-export default EditInventory;
+export default AddInventory;

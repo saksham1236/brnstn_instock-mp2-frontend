@@ -10,7 +10,7 @@ import EditInventoryForm from "./components/EditInventory/EditInventory";
 import AddWarehouseForm from "./components/AddWarehouse/AddWarehouse";
 import EditWarehouseForm from './components/EditWarehouse/EditWarehouse';
 import InventoryDetails from './components/InventoryDetails/InventoryDetails';
-import AddInventoryForm from "./components/AddInventory/AddInventory";
+import EditInventoryForm from "./components/EditInventory/EditInventory";
 
 
 function App() {
@@ -27,7 +27,7 @@ function App() {
         {<Route path ="/inventory" element = {<Inventory />} />}
         {<Route path ="/inventory/:itemId" element = {<InventoryDetails />} />}
         {<Route path ="/inventory/:itemId/edit" element = {<EditInventoryForm />} />}
-        {/* {<Route path ="/inventory/add" element = {<AddInventory />} />} */}
+        {<Route path ="/inventory/add" element = {<AddInventoryForm />} />}
       </Routes>
       <Footer />
     </BrowserRouter>
