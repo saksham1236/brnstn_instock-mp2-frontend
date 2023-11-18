@@ -7,12 +7,12 @@ function DropdownSelect(props) {
 		<div className={`inputEl inputEl-dropdown ${customClasses ? customClasses : ""}`}>
 			<label
 				className='inputEl__label label'
-				for={fieldName}>
+				htmlFor={fieldName}>
 				<h3>{labelName}</h3>
 			</label>
                 <div className="inputEl-dropdown">
                 <select id = {fieldName} name = {fieldName} className='inputEl__dropdown'>
-                    {items.map(item => <option value = {item}>{item}</option>)}
+                    {items.map(item => <option value = {item} selected = {item === defaultValue ? "selected" : false}>{item}</option>)}
                 </select>
                 <span className="inputEl__dropdown__icon"><img src={dropdownArrow} alt = "Dropdown Arrow"/></span>
                 </div>
