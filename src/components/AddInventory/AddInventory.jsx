@@ -34,13 +34,10 @@ function AddInventory(props) {
 		event.preventDefault();
 		navigate(-1);
 	};
-
-
-	if (itemData) {
 		return (
 			<>
 				<TitleComponent
-					title='Edit Inventory Item'
+					title='Add Inventory Item'
 					backButton={true}
 				/>
 
@@ -55,23 +52,24 @@ function AddInventory(props) {
 										</h2>
 										<InputComponent
 											labelName='Item Name'
-											defaultValue={itemData.item_name}
+											defaultValue="Add Item Name"
 										/>
 										<InputComponent
 											labelName='Description'
 											type='textarea'
-											defaultValue={itemData.description}
+											defaultValue="Add a description"
 										/>
 										<DropdownSelect
 											labelName='Category'
 											items={[
+                                                "Please select a category",
 												"Electronics",
 												"Gear",
 												"Apparel",
 												"Accessories",
 												"Health",
 											]}
-											defaultValue = {itemData.category}
+											defaultValue = "Please select a category"
 										/>
 									</div>
 
@@ -82,12 +80,15 @@ function AddInventory(props) {
 										<RadioButtons
 											labelName='Status'
 											items={["In Stock", "Out of Stock"]}
-											defaultValue = {itemData.status}
 										/>
-
+                                        <InputComponent
+											labelName='Quantity'
+											defaultValue="0"
+										/>
 										<DropdownSelect
 											labelName='Warehouse'
 											items={[
+                                                "Please select a Warehouse",
 												"Manhattan",
 												"Washington",
 												"Jersey",
@@ -97,7 +98,7 @@ function AddInventory(props) {
 												"Miami",
 												"Boston",
 											]}
-											defaultValue = {itemData.warehouse_name}
+											defaultValue = "Please select a Warehouse"
 										/>
 									</div>
 								</div>
@@ -117,9 +118,7 @@ function AddInventory(props) {
 				</section>
 			</>
 		);
-	} else {
-		return <h1>Loading</h1>;
-	}
+
 }
 
 export default AddInventory;
