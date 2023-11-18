@@ -21,10 +21,11 @@
         display: inherit;
         flex-direction: column;
         row-gap: 1rem;
-        flex: 1 1 auto;
+        flex: 1 1 50%;
         @include tablet {
             row-gap: 2rem;
             &:first-child {
+                flex: 1 1 75%;
                 padding-right: 1.5rem;
                 border-right: 1px solid var(--Cloud);
             }
