@@ -1,0 +1,32 @@
+@use '../../styles/partials/abstracts' as*;
+
+.inventory-edit {
+    &__form{
+        &__column {
+            display: inherit;
+            flex-direction: column;
+            row-gap: 1rem;
+            flex: 1 1 auto;
+            margin-bottom: 1rem;
+            &:first-child {
+                border-bottom: 1px solid var(--Cloud);
+                padding-bottom: 1rem;
+            }
+    
+            @include tablet {
+                row-gap: 2rem;
+                flex: 1 1 50%;
+                &:first-child {
+                    padding-right: 1.5rem;
+                    border-right: 1px solid var(--Cloud);
+                }
+            }
+
+        }
+
+        &__header {
+            padding-bottom: 1.5rem;
+        }
+    }
+}
+
