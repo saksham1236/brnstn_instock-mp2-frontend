@@ -1,8 +1,8 @@
 @import "../../styles/partials/global";
 
 :root {
-  --card-width: 65rem;
-  --card-width-tablet: 42rem;
+  --warehouse-card-width: 65rem;
+  --warehouse-card-width-tablet: 42rem;
 }
 
 .warehouses-tablet-view {
@@ -39,13 +39,13 @@
       display: flex;
       align-items: flex-end;
       padding: 1rem 1.5rem 0.7rem;
-      width: var(--card-width-tablet);
+      width: var(--warehouse-card-width-tablet);
     }
 
     @include desktop {
       height: 6.6rem;
       padding: 1rem 2rem 1.5rem;
-      width: var(--card-width);
+      width: var(--warehouse-card-width);
     }
   }
 
@@ -163,7 +163,7 @@
     z-index: 0;
 
     @include tablet {
-      width: var(--card-width-tablet);
+      width: var(--warehouse-card-width-tablet);
       background-color: var(--White);
       border-bottom-left-radius: 0.2rem;
       border-bottom-right-radius: 0.2rem;
@@ -171,7 +171,7 @@
       z-index: 0;
     }
     @include desktop {
-      width: var(--card-width);
+      width: var(--warehouse-card-width);
       background-color: var(--White);
       border-bottom-left-radius: 0.2rem;
       border-bottom-right-radius: 0.2rem;
@@ -241,7 +241,6 @@
         transition: background-color 0.25s;
         cursor: pointer;
       }
-
     }
   }
 }
@@ -261,14 +260,14 @@
     justify-content: space-between;
     align-items: center;
     padding: 0.5rem 1.5rem;
-    width: var(--card-width-tablet);
+    width: var(--warehouse-card-width-tablet);
     background-color: var(--Light-Grey);
     color: var(--Slate);
     font-size: 0.7rem;
     z-index: 0;
 
     @include desktop {
-      width: var(--card-width);
+      width: var(--warehouse-card-width);
       padding: 1rem 2rem;
       font-size: 0.9rem;
     }
@@ -336,11 +335,11 @@
 
   @include tablet {
     border-top: none;
-    width: var(--card-width-tablet);
+    width: var(--warehouse-card-width-tablet);
     z-index: 2;
   }
   @include desktop {
-    width: var(--card-width);
+    width: var(--warehouse-card-width);
   }
 
   &__row {
@@ -506,6 +505,9 @@
     img {
       width: 1.2rem;
       margin: 0.5rem 0;
+      &:hover {
+        cursor: pointer;
+      }
 
       @include tablet {
         width: 2rem;

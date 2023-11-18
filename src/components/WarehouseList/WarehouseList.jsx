@@ -7,7 +7,7 @@ import deleteImg from "../../assets/Icons/delete_outline-24px.svg";
 import editImg from "../../assets/Icons/edit-24px.svg";
 import chevronImg from "../../assets/Icons/chevron_right-24px.svg";
 
-function WarehouseList({ warehousesList }) {
+function WarehouseList({ warehousesList, setShowModal, setSelectedWarehouse }) {
   const columnHeaderArray = [
     "Warehouse",
     "Address",
@@ -15,6 +15,12 @@ function WarehouseList({ warehousesList }) {
     "Contact Information",
     "Actions",
   ];
+
+  const handleDeleteWarehouse = (selectedWarehouse) => {
+    console.log("delete warehouse");
+    setSelectedWarehouse(selectedWarehouse);
+    setShowModal(true);
+  };
 
   return (
     <>
@@ -60,7 +66,7 @@ function WarehouseList({ warehousesList }) {
           <div className="warehouses-sort-block">
             <div className="warehouses-sort-block__container">
               {columnHeaderArray.map((columnHeader, index) => (
-                <div className="warehouses-sort-block__column-header">
+                <div className="warehouses-sort-block__column-header" key={columnHeader}>
                   <div className="warehouses-sort-block__header">{columnHeader}</div>
                   {index !== 4 && (
                     <div className="warehouses-sort-block__buttons">
@@ -124,14 +130,20 @@ function WarehouseList({ warehousesList }) {
                 <div className="warehouses-items-block__mobile-block-2">
                   <div className="warehouses-items-block__warehouse-actions">
                     <div className="warehouses-items-block__warehouse-actions-delete">
-                      <img src={deleteImg} alt="delete icon" />
+                      <div className="warehouses-items-block__warehouse-actions-delete">
+                        <img
+                          src={deleteImg}
+                          alt="delete icon"
+                          onClick={() => handleDeleteWarehouse(warehouse.warehouse_name)}
+                        />
+                      </div>
                     </div>
                     <div className="warehouses-items-block__warehouse-actions-edit">
                       <img src={editImg} alt="edit icon" />
                     </div>
                   </div>
                 </div>
-              </div>
+                </div>
             ))}
           </div>
         </div>
