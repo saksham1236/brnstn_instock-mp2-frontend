@@ -26,7 +26,9 @@ function WarehouseList({ warehousesList, setShowModal, setSelectedWarehouse }) {
     <>
       <div className="warehouses-title-block">
         <div className="warehouses-title-block__container">
-          <div className="warehouses-title-block__title"><h1>Warehouses</h1></div>
+          <div className="warehouses-title-block__title">
+            <h1>Warehouses</h1>
+          </div>
           <div className="warehouses-title-block__search warehouses-tablet-view">
             <input
               type="text"
@@ -45,8 +47,7 @@ function WarehouseList({ warehousesList, setShowModal, setSelectedWarehouse }) {
 
       <div className="warehouses-card__background">
         <div className="warehouses-card__card">
-
-          <div className="warehouses-search-block mobile-view">
+          <div className="warehouses-search-block warehouses-mobile-view">
             <div className="warehouses-search-block__search">
               <input
                 type="text"
@@ -66,8 +67,13 @@ function WarehouseList({ warehousesList, setShowModal, setSelectedWarehouse }) {
           <div className="warehouses-sort-block">
             <div className="warehouses-sort-block__container">
               {columnHeaderArray.map((columnHeader, index) => (
-                <div className="warehouses-sort-block__column-header" key={columnHeader}>
-                  <div className="warehouses-sort-block__header">{columnHeader}</div>
+                <div
+                  className="warehouses-sort-block__column-header"
+                  key={columnHeader}
+                >
+                  <div className="warehouses-sort-block__header">
+                    {columnHeader}
+                  </div>
                   {index !== 4 && (
                     <div className="warehouses-sort-block__buttons">
                       <div className="warehouses-sort-block__icons">
@@ -89,15 +95,16 @@ function WarehouseList({ warehousesList, setShowModal, setSelectedWarehouse }) {
               <div key={warehouse.id} className="warehouses-items-block__row">
                 <div className="warehouses-items-block__mobile-block-1">
                   <div className="warehouses-items-block__column-1">
-                    <div className="warehouses-items-block__header mobile-view">
+                    <div className="warehouses-items-block__header warehouses-mobile-view">
                       {columnHeaderArray[0]}
                     </div>
                     <div className="warehouses-items-block__warehouse-name">
                       <Link to={`/warehouses/${warehouse.id}`}>
-                        {warehouse.warehouse_name}<img src={chevronImg} alt="chevron icon" />
+                        {warehouse.warehouse_name}
+                        <img src={chevronImg} alt="chevron icon" />
                       </Link>
                     </div>
-                    <div className="warehouses-items-block__header mobile-view">
+                    <div className="warehouses-items-block__header warehouses-mobile-view">
                       {columnHeaderArray[1]}
                     </div>
 
@@ -106,14 +113,14 @@ function WarehouseList({ warehousesList, setShowModal, setSelectedWarehouse }) {
                     </div>
                   </div>
                   <div className="warehouses-items-block__column-2">
-                    <div className="warehouses-items-block__header mobile-view">
+                    <div className="warehouses-items-block__header warehouses-mobile-view">
                       {columnHeaderArray[2]}
                     </div>
                     <div className="warehouses-items-block__warehouse-contact-name">
                       {warehouse.contact_name}
                     </div>
 
-                    <div className="warehouses-items-block__header mobile-view">
+                    <div className="warehouses-items-block__header warehouses-mobile-view">
                       {columnHeaderArray[3]}
                     </div>
                     <div className="warehouses-items-block__warehouse-contact-info">
@@ -134,7 +141,9 @@ function WarehouseList({ warehousesList, setShowModal, setSelectedWarehouse }) {
                         <img
                           src={deleteImg}
                           alt="delete icon"
-                          onClick={() => handleDeleteWarehouse(warehouse.warehouse_name)}
+                          onClick={() =>
+                            handleDeleteWarehouse(warehouse.warehouse_name)
+                          }
                         />
                       </div>
                     </div>
@@ -143,7 +152,7 @@ function WarehouseList({ warehousesList, setShowModal, setSelectedWarehouse }) {
                     </div>
                   </div>
                 </div>
-                </div>
+              </div>
             ))}
           </div>
         </div>

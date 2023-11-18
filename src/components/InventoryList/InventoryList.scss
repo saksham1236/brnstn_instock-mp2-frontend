@@ -566,6 +566,10 @@
     img {
       width: 1.2rem;
       margin: 0.5rem 0;
+      &:hover {
+        cursor: pointer;
+      }
+
 
       @include tablet {
         width: 2rem;

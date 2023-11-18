@@ -3,20 +3,20 @@ import "./DeleteInventoryModal.scss";
 import closeImg from "../../assets/Icons/close-24px.svg";
 
 const DeleteInventoryModal = ({
-  selectedWarehouse,
+  selectedInventory,
   setShowModal,
-  setSelectedWarehouse,
+  setSelectedInventory,
 }) => {
   const handleClose = () => {
     console.log("close modal");
-    setSelectedWarehouse(null);
+    setSelectedInventory(null);
     setShowModal(false);
   };
 
   const handleDelete = () => {
-    console.log("delete selected warehouse: ", selectedWarehouse);
+    console.log("delete selected Inventory: ", selectedInventory);
     setShowModal(false);
-    setSelectedWarehouse(null);
+    setSelectedInventory(null);
   };
 
   return (
@@ -26,12 +26,12 @@ const DeleteInventoryModal = ({
           <img src={closeImg} alt="close icon" onClick={handleClose} />
         </div>
         <div className="delete-inventory-modal__title">
-          <h1>Delete {selectedWarehouse} warehouse? </h1>
+          <h1>Delete {selectedInventory} inventory item? </h1>
         </div>
         <div className="delete-inventory-modal__text">
           <p>
-            Please confirm that you'd like to delete {selectedWarehouse} from
-            the list of warehouses. You won't be able to undo this action.
+            Please confirm that you'd like to delete {selectedInventory} from
+            the inventory list. You won't be able to undo this action.
           </p>
         </div>
         <div className="delete-inventory-modal__buttons">
