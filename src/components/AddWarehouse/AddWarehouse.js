@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { v4 as uuidv4 } from 'uuid';
+import axios from 'axios';
 
 // pages
 import './AddWarehouse.scss';
@@ -92,7 +93,9 @@ export default function AddWarehouseForm() {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (validateForm()) {
-      // If form is valid, can call API to submit form data
+      axios.post('http://localhost:8080/warehouses', formData)
+      .then(response => console.log(response.data))
+      .catch(error => console.error('Error:', error));
     }
   };
 
@@ -127,7 +130,8 @@ export default function AddWarehouseForm() {
                   error.warehouse_name ? 'error-input' : ''
                 }`}
                 placeholder="Warehouse Name"
-                name="warehouseName"
+                name="warehouse_name"
+                // type="text"
                 value={formData.warehouse_name}
                 onChange={formHandler}
               ></input>
@@ -143,7 +147,7 @@ export default function AddWarehouseForm() {
                   error.address ? 'error-input' : ''
                 }`}
                 placeholder="Street Address"
-                name="streetAddress"
+                name="address"
                 value={formData.address}
                 onChange={formHandler}
               ></input>
@@ -195,7 +199,7 @@ export default function AddWarehouseForm() {
                   error.contact_name ? 'error-input' : ''
                 }`}
                 placeholder="Contact Name"
-                name="contactName"
+                name="contact_name"
                 value={formData.contact_name}
                 onChange={formHandler}
               ></input>
@@ -211,7 +215,7 @@ export default function AddWarehouseForm() {
                   error.contact_position ? 'error-input' : ''
                 }`}
                 placeholder="Position"
-                name="position"
+                name="contact_position"
                 value={formData.contact_position}
                 onChange={formHandler}
               ></input>
@@ -227,7 +231,7 @@ export default function AddWarehouseForm() {
                   error.contact_phone ? 'error-input' : ''
                 }`}
                 placeholder="Phone Number"
-                name="phoneNumber"
+                name="contact_phone"
                 value={formData.contact_phone}
                 onChange={formHandler}
               ></input>
@@ -244,7 +248,7 @@ export default function AddWarehouseForm() {
                 }`}
                 placeholder="Email"
                 type="email"
-                name="email"
+                name="contact_email"
                 value={formData.contact_email}
                 onChange={formHandler}
               ></input>
