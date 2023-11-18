@@ -10,7 +10,7 @@ function Home() {
   const [warehousesList, setWarehousesList] = useState([null]);
   const [isLoading, setIsLoading] = useState(true);
   const [selectedWarehouse, setSelectedWarehouse] = useState(null);
-  const [showModal, setShowModal] = useState(true);
+  const [showModal, setShowModal] = useState(false);
   const [viewWidth, setViewWidth] = useState(window.innerWidth);
 
   useEffect(() => {
@@ -33,42 +33,38 @@ function Home() {
 
   return (
     <>
-      {/* this code block below needs to be fixed, warehouse list component needs to  */}
 
-      {
-        !showModal ? (
-          !isLoading ? (
-            <WarehouseList warehousesList={warehousesList} />
-          ) : (
-            <div className="isLoading">Loading...</div>
-          )
-        ) : //show modal
-
-        viewWidth <= 320 ? (
-          <DeleteWarehouseModal />
-        ) : !isLoading ? (
-          <>
-            <DeleteWarehouseModal style={{ transform: 'translateY(-50px)' }} />
-            <WarehouseList warehousesList={warehousesList} />
-          </>
+      {!showModal ? (
+        !isLoading ? (
+          <WarehouseList
+            warehousesList={warehousesList}
+            setSelectedWarehouse={setSelectedWarehouse}
+            setShowModal={setShowModal}
+          />
         ) : (
           <div className="isLoading">Loading...</div>
         )
+      ) : 
 
-        // ((!showModal) && (viewWidth <= 320)) ? (
-        //   !isLoading ? (
-        //     <WarehouseList warehousesList={warehousesList} />
-        //   ) : (
-        //     <div className="isLoading">Loading...</div>
-        //   )
-        // ) : (
-        //   !isLoading ? (
-        //     <WarehouseList warehousesList={warehousesList} />
-        //   ) : (
-        //     <div className="isLoading">Loading...</div>
-        //   )
-        // )
-      }
+      viewWidth <= 320 ? (
+        <DeleteWarehouseModal
+          selectedWarehouse={selectedWarehouse}
+          setShowModal={setShowModal}
+          setSelectedWarehouse={setSelectedWarehouse}
+        />
+      ) : !isLoading ? (
+        <>
+          <DeleteWarehouseModal selectedWarehouse={selectedWarehouse}
+          setShowModal={setShowModal} setSelectedWarehouse={setSelectedWarehouse} />
+          <WarehouseList
+            warehousesList={warehousesList}
+            setSelectedWarehouse={setSelectedWarehouse}
+            setShowModal={setShowModal}
+          />
+        </>
+      ) : (
+        <div className="isLoading">Loading...</div>
+      )}
     </>
   );
 }
