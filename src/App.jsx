@@ -4,6 +4,8 @@ import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
 import Home from "./pages/home/Home";
 import AddWarehouseForm from "./components/AddWarehouse/AddWarehouse"
+import EditWarehouseForm from "./components/EditWarehouse/EditWarehouse"
+// import InventoryDetails from "./components/InventoryDetails/InventoryDetails"
 
 
 function App() {
@@ -18,7 +20,7 @@ function App() {
         {<Route path ="/warehouse/add" element = {<AddWarehouseForm />} />}
         {<Route path ="/warehouse/edit" element = {<EditWarehouseForm />} />}
         {/* {<Route path ="/inventory" element = {<Inventory />} />} */}
-        <Route path ="/inventory/:itemId" element = {<InventoryDetails />} />
+        {/* <Route path ="/inventory/:itemId" element = {<InventoryDetails />} /> */}
         {/* {<Route path ="/inventory/:item/edit" element = {<InventoryItemEdit />} />} */}
         {/* {<Route path ="/inventory/add" element = {<AddInventory />} />} */}
       </Routes>
