@@ -5,7 +5,7 @@
   --card-width-tablet: 42rem;
 }
 
-.tablet-view {
+.warehouses-tablet-view {
   display: none;
 
   @include tablet {
@@ -13,7 +13,7 @@
   }
 }
 
-.title-block {
+.warehouses-title-block {
   display: flex;
   justify-content: center;
   background-color: var(--Graphite);
@@ -146,7 +146,7 @@
   }
 }
 
-.card {
+.warehouses-card {
   &__background {
     width: 100%;
     background-color: var(--Light-Grey);
@@ -182,7 +182,7 @@
 }
 
 // this search block is for mobile view
-.search-block {
+.warehouses-search-block {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -246,7 +246,7 @@
   }
 }
 
-.sort-block {
+.warehouses-sort-block {
   display: none;
 
   @include tablet {
@@ -324,14 +324,14 @@
   }
 
   &__icons {
-    .sort-block__icon {
+    .warehouses-sort-block__icon {
       margin-top: auto;
       width: 1rem;
     }
   }
 }
 
-.warehouses-block {
+.warehouses-items-block {
   border-top: 0.09rem solid var(--Cloud);
 
   @include tablet {

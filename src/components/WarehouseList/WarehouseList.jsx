@@ -20,7 +20,7 @@ function WarehouseList({ warehousesList }) {
     <>
       <div className="warehouses-title-block">
         <div className="warehouses-title-block__container">
-          <div className="warehouses-title-block__title">Warehouses</div>
+          <div className="warehouses-title-block__title"><h1>Warehouses</h1></div>
           <div className="warehouses-title-block__search warehouses-tablet-view">
             <input
               type="text"
