@@ -28,14 +28,14 @@ export default function EditWarehouseForm() {
 
   // build new warehouse object to hold data, to be submitted to server
   const [formData, setFormData] = useState({
-    warehouseName: '',
-    streetAddress: '',
+    warehouse_name: '',
+    address: '',
     city: '',
     country: '',
-    contactName: '',
-    position: '',
-    phoneNumber: '',
-    email: '',
+    contact_name: '',
+    contact_position: '',
+    contact_phone: '',
+    contact_email: '',
   });
 
   // event handler that updates state, handles multiple form input field changes
@@ -52,13 +52,13 @@ export default function EditWarehouseForm() {
     let isValid = true;
     let errors = {};
 
-    if (!formData.warehouseName) {
+    if (!formData.warehouse_name) {
       isValid = false;
-      errors.warehouseName = 'This field is required';
+      errors.warehouse_name = 'This field is required';
     }
-    if (!formData.streetAddress) {
+    if (!formData.address) {
       isValid = false;
-      errors.streetAddress = 'This field is required';
+      errors.address = 'This field is required';
     }
     if (!formData.city) {
       isValid = false;
@@ -68,21 +68,21 @@ export default function EditWarehouseForm() {
       isValid = false;
       errors.country = 'This field is required';
     }
-    if (!formData.contactName) {
+    if (!formData.contact_name) {
       isValid = false;
-      errors.contactName = 'This field is required';
+      errors.contact_name = 'This field is required';
     }
-    if (!formData.position) {
+    if (!formData.contact_position) {
       isValid = false;
-      errors.position = 'This field is required';
+      errors.contact_position = 'This field is required';
     }
-    if (!regexPhone.test(formData.phoneNumber)) {
+    if (!regexPhone.test(formData.contact_phone)) {
       isValid = false;
-      errors.phoneNumber = 'This field is required';
+      errors.contact_phone = 'This field is required';
     }
-    if (!regexEmail.test(formData.email)) {
+    if (!regexEmail.test(formData.contact_email)) {
       isValid = false;
-      errors.email = 'This field is required';
+      errors.contact_email = 'This field is required';
     }
 
     setError(errors); // Update the error state with any validation messages
@@ -125,33 +125,33 @@ export default function EditWarehouseForm() {
               <label className="text-input__header">Warehouse Name</label>
               <input
                 className={`text-input__input ${
-                  error.warehouseName ? 'error-input' : ''
+                  error.warehouse_name ? 'error-input' : ''
                 }`}
                 placeholder="Warehouse Name"
-                name="warehouseName"
-                value={formData.warehouseName}
+                name="warehouse_name"
+                value={formData.warehouse_name}
                 onChange={formHandler}
               ></input>
-              {error.warehouseName && (
+              {error.warehouse_name && (
                 <p className="error">
                   <img className="error-icon" src={ErrorIcon} alt="Error" />
-                  {error.warehouseName}
+                  {error.warehouse_name}
                 </p>
               )}
               <label className="text-input__header">Street Address</label>
               <input
                 className={`text-input__input ${
-                  error.streetAddress ? 'error-input' : ''
+                  error.address ? 'error-input' : ''
                 }`}
                 placeholder="Street Address"
-                name="streetAddress"
-                value={formData.streetAddress}
+                name="address"
+                value={formData.address}
                 onChange={formHandler}
               ></input>
-              {error.streetAddress && (
+              {error.address && (
                 <p className="error">
                   <img className="error-icon" src={ErrorIcon} alt="Error" />
-                  {error.streetAddress}
+                  {error.address}
                 </p>
               )}
               <label className="text-input__header">City</label>
@@ -193,66 +193,66 @@ export default function EditWarehouseForm() {
               <label className="text-input__header">Contact Name</label>
               <input
                 className={`text-input__input ${
-                  error.contactName ? 'error-input' : ''
+                  error.contact_name ? 'error-input' : ''
                 }`}
                 placeholder="Contact Name"
-                name="contactName"
-                value={formData.contactName}
+                name="contact_name"
+                value={formData.contact_name}
                 onChange={formHandler}
               ></input>
-              {error.contactName && (
+              {error.contact_name && (
                 <p className="error">
                   <img className="error-icon" src={ErrorIcon} alt="Error" />
-                  {error.contactName}
+                  {error.contact_name}
                 </p>
               )}
               <label className="text-input__header">Position</label>
               <input
                 className={`text-input__input ${
-                  error.position ? 'error-input' : ''
+                  error.contact_position ? 'error-input' : ''
                 }`}
                 placeholder="Position"
-                name="position"
-                value={formData.position}
+                name="contact_position"
+                value={formData.contact_position}
                 onChange={formHandler}
               ></input>
-              {error.position && (
+              {error.contact_position && (
                 <p className="error">
                   <img className="error-icon" src={ErrorIcon} alt="Error" />
-                  {error.position}
+                  {error.contact_position}
                 </p>
               )}
               <label className="text-input__header">Phone Number</label>
               <input
                 className={`text-input__input ${
-                  error.phoneNumber ? 'error-input' : ''
+                  error.contact_phone ? 'error-input' : ''
                 }`}
                 placeholder="Phone Number"
-                name="phoneNumber"
-                value={formData.phoneNumber}
+                name="contact_phone"
+                value={formData.contact_phone}
                 onChange={formHandler}
               ></input>
-              {error.phoneNumber && (
+              {error.contact_phone && (
                 <p className="error">
                   <img className="error-icon" src={ErrorIcon} alt="Error" />
-                  {error.phoneNumber}
+                  {error.contact_phone}
                 </p>
               )}
               <label className="text-input__header">Email</label>
               <input
                 className={`text-input__input ${
-                  error.email ? 'error-input' : ''
+                  error.contact_email ? 'error-input' : ''
                 }`}
                 placeholder="Email"
                 type="email"
-                name="email"
-                value={formData.email}
+                name="contact_email"
+                value={formData.contact_email}
                 onChange={formHandler}
               ></input>
-              {error.email && (
+              {error.contact_email && (
                 <p className="error">
                   <img className="error-icon" src={ErrorIcon} alt="Error" />
-                  {error.email}
+                  {error.contact_email}
                 </p>
               )}
             </section>
