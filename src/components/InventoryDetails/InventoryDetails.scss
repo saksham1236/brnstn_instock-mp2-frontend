@@ -25,7 +25,6 @@
         @include tablet {
             row-gap: 2rem;
             &:first-child {
-                flex: 1 1 75%;
                 padding-right: 1.5rem;
                 border-right: 1px solid var(--Cloud);
             }

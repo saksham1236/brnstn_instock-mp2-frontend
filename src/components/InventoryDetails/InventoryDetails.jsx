@@ -1,7 +1,7 @@
 import "./InventoryDetails.scss";
 import { useEffect, useState } from "react";
 import axios from "axios";
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import TagEl from "../../components/TagsEl/TagEl.jsx";
 import TitleComponent from "../../components/TitleComponent/TitleComponent";
 
@@ -10,6 +10,7 @@ import TitleComponent from "../../components/TitleComponent/TitleComponent";
  * @returns {ReactComponentElement} Renders the Inventory Details Page component.
  */
 function InventoryDetails(props) {
+
 	const params = useParams();
 	const [itemData, setItemData] = useState();
 
@@ -90,7 +91,7 @@ function InventoryDetails(props) {
 			</>
 		);
 	} else {
-		<h1>Loading</h1>;
+		return(<h1>Loading</h1>);
 	}
 }
 

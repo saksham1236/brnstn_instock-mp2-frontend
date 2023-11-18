@@ -1,23 +1,36 @@
 import "./Input.scss";
 
 function InputComponent(props) {
-	const { label, fieldName, value, type, customClasses, ...rest } = props;
+	let { labelName, fieldName, defaultValue, type, customClasses, ...rest } = props;
 	if (!type) {
 		type = "text";
 	}
 	if (!fieldName) {
-		fieldName = label;
+		fieldName = labelName;
 	}
-	return (
-		<div className={`input ${customClasses}`}>
-			<label for={fieldName}>
-				{label}
-                <input type={type} name={fieldName} {...rest}>
-						{value}
-				</input>
-			</label>
-		</div>
-	);
+
+	switch (type) {
+		case "text":
+				return (
+					<div className={`inputEl ${customClasses ? customClasses : ""}`}>
+						<label className="inputEl__label label" for={fieldName}>
+							<h3>{labelName}</h3>
+						</label>
+						<input id = {fieldName} className="inputEl__field" type={type} name={fieldName} placeholder= {defaultValue} {...rest}></input>
+					</div>
+				);
+				
+		case "textarea":
+			return (
+				<div className={`inputEl ${customClasses ? customClasses : ""}`}>
+					<label className="inputEl__label label" for={fieldName}>
+						<h3>{labelName}</h3>
+					</label>
+					<textarea rows = "5" id = {fieldName} className="inputEl__field" type={type} name={fieldName} placeholder= {defaultValue} {...rest}></textarea>
+				</div>
+			);
+	}
+
 }
 
 export default InputComponent;
