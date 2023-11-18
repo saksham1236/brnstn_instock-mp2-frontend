@@ -6,7 +6,7 @@ import Home from "./pages/home/Home";
 import AddWarehouseForm from "./components/AddWarehouse/AddWarehouse"
 import EditWarehouseForm from './components/EditWarehouse/EditWarehouse';
 import InventoryDetails from './components/InventoryDetails/InventoryDetails';
-
+import InventoryEdit from "./components/InventoryEdit/InventoryEdit";
 
 function App() {
   let { itemId } = useParams();
