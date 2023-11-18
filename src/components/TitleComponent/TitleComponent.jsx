@@ -58,7 +58,7 @@ function TitleComponent(props) {
 						/>
 					</div>
 				)}
-				{buttonTitle && <ButtonEl title={buttonTitle} buttonType={buttonType} link={buttonLink}/>}
+				{buttonTitle && <ButtonEl className = "buttonEl" title={buttonTitle} buttonType={buttonType} link={buttonLink}/>}
 
 			</div>
 		</div>
