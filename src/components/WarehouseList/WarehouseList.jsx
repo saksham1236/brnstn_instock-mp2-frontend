@@ -21,6 +21,7 @@ function WarehouseList({
     "Actions",
   ];
 
+  // function for button - setting up the modal to delete a warehouse
   const handleDeleteWarehouse = (selectedWarehouse, selectedId) => {
     setSelectedWarehouseName(selectedWarehouse);
     setSelectedWarehouseId(selectedId);
@@ -38,6 +39,7 @@ function WarehouseList({
             <input
               type="text"
               className="warehouses-title-block__search-bar"
+              id="home-search-bar"
               placeholder="Search..."
             />
             <img src={searchImg} alt="sort icon" />
@@ -57,6 +59,7 @@ function WarehouseList({
               <input
                 type="text"
                 className="warehouses-search-block__search-bar"
+                id="home-search-bar"
                 placeholder="Search..."
               />
               <img src={searchImg} alt="sort icon" />

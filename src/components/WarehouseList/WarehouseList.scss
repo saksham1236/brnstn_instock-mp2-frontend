@@ -36,7 +36,6 @@
       align-items: center;
       justify-content: space-between;
       height: 5rem;
-      display: flex;
       align-items: flex-end;
       padding: 1rem 1.5rem 0.7rem;
       width: var(--warehouse-card-width-tablet);
@@ -139,10 +138,6 @@
         margin-bottom: 0.4rem;
       }
       @include desktop {
-        background-color: var(--Instock-Indigo);
-        color: var(--White);
-        border: none;
-        border-radius: 1.25rem;
         padding: 0.6rem 2rem;
         font-size: 1rem;
       }
@@ -169,18 +164,10 @@
     @include tablet {
       width: var(--warehouse-card-width-tablet);
       background-color: var(--White);
-      border-bottom-left-radius: 0.2rem;
-      border-bottom-right-radius: 0.2rem;
-      box-shadow: 0px 0px 4px 4px rgba(0, 0, 0, 0.05);
-      z-index: 0;
     }
     @include desktop {
       width: var(--warehouse-card-width);
       background-color: var(--White);
-      border-bottom-left-radius: 0.2rem;
-      border-bottom-right-radius: 0.2rem;
-      box-shadow: 0px 0px 4px 4px rgba(0, 0, 0, 0.05);
-      z-index: 0;
     }
   }
 }
@@ -441,6 +428,10 @@
         text-decoration: none;
         font-weight: 700;
         color: var(--Instock-Indigo);
+
+        &:hover {
+          text-decoration: underline;
+        }
       }
 
       &-container {
@@ -537,5 +528,14 @@
 .warehouses-mobile-view {
   @include tablet {
     display: none;
+  }
+}
+
+#home-search-bar {
+  border: none;
+
+  &:focus {
+    outline: none;
+    border: none;
   }
 }

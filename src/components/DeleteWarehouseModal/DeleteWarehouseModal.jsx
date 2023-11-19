@@ -12,12 +12,14 @@ const DeleteWarehouseModal = ({
   setSelectedWarehouseName,
   setSelectedWarehouseId,
 }) => {
+  // function for button - closing the modal
   const handleClose = () => {
     setSelectedWarehouseName(null);
     setSelectedWarehouseId(null);
     setShowModal(false);
   };
 
+  // function for button - deleting a warehouse
   const handleDelete = () => {
     axios
       .delete(API_URL + "/warehouses/" + selectedWarehouseId)
@@ -42,7 +44,7 @@ const DeleteWarehouseModal = ({
         </div>
         <div className="delete-warehouse-modal__text">
           <p>
-            Please confirm that you'd like to delete {selectedWarehouseName}{" "}
+            Please confirm that you'd like to delete {selectedWarehouseName}
             from the list of warehouses. You won't be able to undo this action.
           </p>
         </div>

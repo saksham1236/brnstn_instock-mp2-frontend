@@ -22,6 +22,7 @@ function InventoryList({
     "Actions",
   ];
 
+  // function for button - setting up the modal to delete an inventory item
   const handleDeleteInventory = (
     selectedInventoryName,
     selectedInventoryId
@@ -42,6 +43,7 @@ function InventoryList({
             <input
               type="text"
               className="title-block__search-bar"
+              id="home-search-bar"
               placeholder="Search..."
             />
             <img src={searchImg} alt="sort icon" />
@@ -59,6 +61,7 @@ function InventoryList({
               <input
                 type="text"
                 className="search-block__search-bar"
+                id="home-search-bar"
                 placeholder="Search..."
               />
               <img src={searchImg} alt="sort icon" />
@@ -173,7 +176,6 @@ function InventoryList({
                     </div>
                     <div className="inventory-block__inventory-actions-edit">
                       <img src={editImg} alt="edit icon" />
-
                     </div>
                   </div>
                 </div>

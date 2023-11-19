@@ -12,27 +12,25 @@ const DeleteInventoryModal = ({
   setSelectedInventoryName,
   setSelectedInventoryId,
 }) => {
+  // function for button - closing the modal
   const handleClose = () => {
     setSelectedInventoryName(null);
     setSelectedInventoryId(null);
     setShowModal(false);
   };
 
+  // function for button - deleting an inventory item
   const handleDelete = () => {
     axios
-    .delete(API_URL + "/inventories/" + selectedInventoryId)
-    .then((response) => {
-      setShowModal(false);
-      setSelectedInventoryName(null);
-      setSelectedInventoryId(null);
-    })
-    .catch((error) => {
-      console.error(error);
-    });
-    
-    setShowModal(false);
-    setSelectedInventoryName(null);
-    setSelectedInventoryId(null);
+      .delete(API_URL + "/inventories/" + selectedInventoryId)
+      .then((response) => {
+        setShowModal(false);
+        setSelectedInventoryName(null);
+        setSelectedInventoryId(null);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
   };
 
   return (
@@ -46,8 +44,8 @@ const DeleteInventoryModal = ({
         </div>
         <div className="delete-inventory-modal__text">
           <p>
-            Please confirm that you'd like to delete {selectedInventoryName} from
-            the inventory list. You won't be able to undo this action.
+            Please confirm that you'd like to delete {selectedInventoryName}
+            from the inventory list. You won't be able to undo this action.
           </p>
         </div>
         <div className="delete-inventory-modal__buttons">
