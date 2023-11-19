@@ -93,7 +93,8 @@
       width: 85%;
       outline: none;
 
-      &:focus, &:active {
+      &:focus,
+      &:active {
         border: 0px;
         outline: none;
       }
@@ -440,6 +441,21 @@
         text-decoration: none;
         font-weight: 700;
         color: var(--Instock-Indigo);
+      }
+
+      &-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: transform 0.3s ease;
+
+        &:hover .warehouses-items-block__warehouse-name-chevron {
+          transform: translateX(0.25rem);
+        }
+      }
+
+      &-chevron {
+        transition: transform 0.3s ease;
       }
 
       @include tablet {

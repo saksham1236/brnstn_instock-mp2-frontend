@@ -7,7 +7,12 @@ import deleteImg from "../../assets/Icons/delete_outline-24px.svg";
 import editImg from "../../assets/Icons/edit-24px.svg";
 import chevronImg from "../../assets/Icons/chevron_right-24px.svg";
 
-function InventoryList({ inventoryList, setShowModal, setSelectedInventoryName, setSelectedInventoryId }) {
+function InventoryList({
+  inventoryList,
+  setShowModal,
+  setSelectedInventoryName,
+  setSelectedInventoryId,
+}) {
   const columnHeaderArray = [
     "Inventory Item",
     "Category",
@@ -17,7 +22,10 @@ function InventoryList({ inventoryList, setShowModal, setSelectedInventoryName, 
     "Actions",
   ];
 
-  const handleDeleteInventory = (selectedInventoryName, selectedInventoryId) => {
+  const handleDeleteInventory = (
+    selectedInventoryName,
+    selectedInventoryId
+  ) => {
     setSelectedInventoryName(selectedInventoryName);
     setSelectedInventoryId(selectedInventoryId);
     setShowModal(true);
@@ -94,8 +102,14 @@ function InventoryList({ inventoryList, setShowModal, setSelectedInventoryName, 
                     </div>
                     <div className="inventory-block__inventory-name">
                       <Link to={`/inventory/${inventoryItem.id}`}>
-                        {inventoryItem.item_name}
-                        <img src={chevronImg} alt="chevron icon" />
+                        <div className="inventory-block__inventory-name-container">
+                          {inventoryItem.item_name}
+                          <img
+                            src={chevronImg}
+                            alt="chevron icon"
+                            className="inventory-block__inventory-name-chevron"
+                          />
+                        </div>
                       </Link>
                     </div>
                     <div className="inventory-block__header mobile-view">
@@ -150,23 +164,20 @@ function InventoryList({ inventoryList, setShowModal, setSelectedInventoryName, 
                         src={deleteImg}
                         alt="delete icon"
                         onClick={() =>
-                          handleDeleteInventory(inventoryItem.item_name, inventoryItem.id)
+                          handleDeleteInventory(
+                            inventoryItem.item_name,
+                            inventoryItem.id
+                          )
                         }
                       />
                     </div>
                     <div className="inventory-block__inventory-actions-edit">
                       <img src={editImg} alt="edit icon" />
 
-                      {/* <div className="inventory-block__inventory-actions-delete">
-                      <img src={deleteImg} alt="delete icon" />
-                      </div>
-                      <div className="inventory-block__inventory-actions-edit">
-                    <img src={editImg} alt="edit icon" /> */}
                     </div>
                   </div>
                 </div>
               </div>
-              // </div>
             ))}
           </div>
         </div>
