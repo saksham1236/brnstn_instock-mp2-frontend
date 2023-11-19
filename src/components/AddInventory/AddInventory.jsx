@@ -1,4 +1,11 @@
-
+import TitleComponent from "../TitleComponent/TitleComponent";
+import InputComponent from "../Input/Input";
+import DropdownSelect from "../Dropdown/Dropdown";
+import RadioButtons from "../RadioButton/RadioButton";
+import ButtonEl from "../Button/Button";
+import { useEffect, useState } from "react";
+import axios from "axios";
+import { useParams, useNavigate } from "react-router-dom";
 /**
  * 
  * @param {*} props 
@@ -42,11 +49,13 @@ function AddInventory(props) {
 										<InputComponent
 											labelName='Item Name'
 											defaultValue="Add Item Name"
+                                            required
 										/>
 										<InputComponent
 											labelName='Description'
 											type='textarea'
 											defaultValue="Add a description"
+                                            required
 										/>
 										<DropdownSelect
 											labelName='Category'
@@ -59,6 +68,7 @@ function AddInventory(props) {
 												"Health",
 											]}
 											defaultValue = "Please select a category"
+                                            required
 										/>
 									</div>
 
@@ -73,6 +83,7 @@ function AddInventory(props) {
                                         <InputComponent
 											labelName='Quantity'
 											defaultValue="0"
+                                            required
 										/>
 										<DropdownSelect
 											labelName='Warehouse'
