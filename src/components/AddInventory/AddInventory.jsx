@@ -42,7 +42,7 @@ function AddInventory(props) {
 
 	const postData = async (formData) => {
 		axios
-		.put(`http://localhost:8080/inventories/${params.itemId}`, formData)
+		.post(`http://localhost:8080/inventories/${params.itemId}`, formData)
 		.then((res) => {
 			alert(`Item has been added successfully ${res.status}`)
 		})
