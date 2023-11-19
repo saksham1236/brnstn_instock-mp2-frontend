@@ -64,7 +64,7 @@ function InventoryDetails(props) {
 							</div>
 
 							<div className='inventory__details__column'>
-								<div class='inventory__details__stats'>
+								<div className='inventory__details__stats'>
 									<div className='inventory__details__status inventory__details__tab'>
 										<h4 className='label'>STATUS:</h4>
 										<TagEl type={itemData.status} />

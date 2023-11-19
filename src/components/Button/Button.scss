@@ -39,7 +39,8 @@
 	border: 1px solid var(--Graphite);
 
 	&:hover {
-		background-color: var(--Cloud);
+		background-color: var(--Light-Grey);
+		color: var(--Instock-Indigo);
 		border: 1px solid var(--Instock-Indigo);
 	}
 }

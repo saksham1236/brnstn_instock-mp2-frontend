@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import "./WarehouseDetails.scss";
 import TitleComponent from "../TitleComponent/TitleComponent";
+import WarehouseList from "../WarehouseInventory/WarehouseInventory";
 
 const url = "http://localhost:8080";
 function WarehouseDetails(props) {
@@ -12,7 +13,7 @@ function WarehouseDetails(props) {
 
   useEffect(() => {
     console.log(params.id)
-    axios.get(`${url}/warehouses/${params.id}`)
+    axios.get(`${url}/warehouses/${params.warehouse}`)
       .then(result => {
 
         const warehouseFound = result.data;
@@ -59,6 +60,7 @@ function WarehouseDetails(props) {
           </div>
         </div>
       </section >
+        <WarehouseList />
     </div >
   )
 }

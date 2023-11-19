@@ -14,7 +14,13 @@
             outline: none;
             border: 1px solid var(--Instock-Indigo);
         }
+
+        &:invalid, &:invalid:required {
+            border: 1px solid red;
+        }
     }
+
+
 
     & textarea {
         width: 100%;
@@ -27,6 +33,10 @@
         &:focus, &:focus-visible {
             outline: none;
             border: 1px solid var(--Instock-Indigo);
+        }
+
+        &:invalid, &:invalid:required {
+            border: 1px solid red;
         }
     }
 }
