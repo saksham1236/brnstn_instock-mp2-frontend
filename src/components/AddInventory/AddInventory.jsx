@@ -23,8 +23,6 @@ function AddInventory(props) {
 		category: "",
 		status: "",
 		quantity: "",
-		created_at: "",
-		updated_at: "",
 		warehouse_name: "",
 	});
 
@@ -42,8 +40,9 @@ function AddInventory(props) {
 
 	const postData = async (formData) => {
 		axios
-		.post(`http://localhost:8080/inventories/${params.itemId}`, formData)
+		.post(`http://localhost:8080/inventories}`, formData)
 		.then((res) => {
+			console.log(formData);
 			alert(`Item has been added successfully ${res.status}`)
 		})
 		.catch((err) =>{
