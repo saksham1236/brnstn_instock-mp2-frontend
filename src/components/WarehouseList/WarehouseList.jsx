@@ -36,9 +36,11 @@ function WarehouseList({ warehousesList, setShowModal, setSelectedWarehouse }) {
             <img src={searchImg} alt="sort icon" />
           </div>
           <div className="warehouses-title-block__add warehouses-tablet-view">
-            <button className="warehouses-title-block__add-button">
-              + Add New Warehouse
-            </button>
+              <Link to={`/warehouse/add`}>
+                <button className="warehouses-title-block__add-button">
+                  + Add New Warehouse
+                </button>
+              </Link>
           </div>
         </div>
       </div>
@@ -138,9 +140,11 @@ function WarehouseList({ warehousesList, setShowModal, setSelectedWarehouse }) {
                         />
                       </div>
                     </div>
-                    <div className="warehouses-items-block__warehouse-actions-edit">
-                      <img src={editImg} alt="edit icon" />
-                    </div>
+                    <Link to={`/warehouse/${warehouse.id}/edit`}>
+                          <div className="warehouses-items-block__warehouse-actions-edit">
+                            <img src={editImg} alt="edit icon" />
+                          </div>
+                    </Link>
                   </div>
                 </div>
                 </div>
