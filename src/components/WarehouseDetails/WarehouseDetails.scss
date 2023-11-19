@@ -3,11 +3,8 @@
 .warehouse-details {
   display: flex;
   flex-direction: column;
-  // align-items: center;
   background-color: var(--Light-Grey);
-  // width: 100%;
   z-index: 1;
-  // padding: 0 1.3rem;
 
   @include tablet {
     flex-direction: row;
@@ -43,7 +40,6 @@
   }
 
   &__card {
-    // text-align: center;
     width: 100%;
     box-shadow: 0px 0px 4px 4px rgba(0, 0, 0, 0.05);
   }
@@ -51,11 +47,7 @@
   &__container {
     display: flex;
     flex-direction: column;
-    // justify-content: flex-end;
     background-color: var(--White);
-    // width: 87%;
-    // z-index: 1;
-    // padding: 1rem;
 
     @include tablet {
       flex-direction: row;
@@ -63,14 +55,11 @@
       justify-content: space-between;
       height: 5rem;
       display: flex;
-      // padding: 1rem 1.5rem 0.7rem;
-      // width: var(--card-width-tablet);
     }
 
     @include desktop {
       height: 6.6rem;
       padding: 1rem 4rem 1.5rem 2rem;
-      // width: var(--card-width);
       align-items: center;
       width: 40rem;
     }
@@ -78,7 +67,6 @@
 
 
   &__address-container {
-    // z-index: 1;
     background-color: var(--White);
     margin-left: 1rem;
 
@@ -107,7 +95,6 @@
 
     @include tablet {
       font-size: 0.8rem;
-      // line-height: 1.375rem;
     }
 
     @include desktop {
@@ -133,8 +120,6 @@
       display: flex;
       border-bottom: none;
       padding-right: 3.5rem;
-      // padding: 1rem 1.5rem 0.7rem;
-      // width: var(--card-width-tablet);
     }
 
     @include desktop {
@@ -179,7 +164,6 @@
     @include tablet {
       font-size: 0.75rem;
       font-style: normal;
-      // font-weight: 400;
       line-height: 1.375rem;
     }
 
@@ -250,7 +234,6 @@
 
     @include tablet {
       font-size: 0.8rem;
-      // line-height: 1.375rem;
     }
 
     @include desktop {
