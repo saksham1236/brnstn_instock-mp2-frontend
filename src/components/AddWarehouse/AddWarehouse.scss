@@ -155,6 +155,10 @@
     padding-left: 1rem;
     padding-right: 1rem;
     font-weight: 400;
+    &:focus {
+        outline: none;
+        border: 1px solid var(--Instock-Indigo);
+        }
 
     @media screen and (min-width: 768px) {
       width: 288px;
