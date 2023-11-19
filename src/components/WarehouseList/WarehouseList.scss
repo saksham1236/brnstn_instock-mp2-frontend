@@ -77,6 +77,7 @@
       padding: 0.2rem 0;
       border: 1px solid var(--Cloud);
       border-radius: 1.25rem;
+      outline: none;
     }
     @include desktop {
       font-size: 1rem;
@@ -90,8 +91,10 @@
       margin-right: auto;
       background-color: transparent;
       width: 85%;
+      outline: none;
 
-      &:focus {
+      &:focus, &:active {
+        border: 0px;
         outline: none;
       }
     }
@@ -207,6 +210,7 @@
       border: none;
       margin-right: auto;
       background-color: transparent;
+
       &:focus {
         outline: none;
       }
@@ -364,7 +368,6 @@
   &__mobile-block-1 {
     display: flex;
     justify-content: space-between;
-    // border: 1px solid palegreen;
     padding: 0 1rem;
 
     @include tablet {
@@ -375,7 +378,6 @@
   }
 
   &__column-1 {
-    // border: 1px dashed lightseagreen;
     width: 45%;
     @include tablet {
       display: flex;
@@ -389,7 +391,6 @@
   }
 
   &__column-2 {
-    // border: 1px dashed lightsalmon;
     flex-grow: 1;
     margin-left: 1rem;
 
@@ -484,7 +485,6 @@
   }
 
   &__mobile-block-2 {
-    // border: 1px solid palevioletred;
     @include tablet {
       display: initial;
     }
@@ -518,7 +518,7 @@
   }
 }
 
-.mobile-view {
+.warehouses-mobile-view {
   @include tablet {
     display: none;
   }

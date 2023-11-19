@@ -9,7 +9,8 @@ const API_URL = process.env.API_URL || "http://localhost:8080";
 function Home() {
   const [warehousesList, setWarehousesList] = useState([null]);
   const [isLoading, setIsLoading] = useState(true);
-  const [selectedWarehouse, setSelectedWarehouse] = useState(null);
+  const [selectedWarehouseName, setSelectedWarehouseName] = useState(null);
+  const [selectedWarehouseId, setSelectedWarehouseId] = useState(null);
   const [showModal, setShowModal] = useState(false);
   const [viewWidth, setViewWidth] = useState(window.innerWidth);
 
@@ -29,36 +30,42 @@ function Home() {
       .catch((error) => {
         console.error(error);
       });
-  }, []);
+  }, [selectedWarehouseId]);
 
   return (
     <>
-
       {!showModal ? (
         !isLoading ? (
           <WarehouseList
             warehousesList={warehousesList}
-            setSelectedWarehouse={setSelectedWarehouse}
+            setSelectedWarehouseName={setSelectedWarehouseName}
+            setSelectedWarehouseId={setSelectedWarehouseId}
             setShowModal={setShowModal}
           />
         ) : (
           <div className="isLoading">Loading...</div>
         )
-      ) : 
-
-      viewWidth <= 320 ? (
+      ) : viewWidth <= 320 ? (
         <DeleteWarehouseModal
-          selectedWarehouse={selectedWarehouse}
+          selectedWarehouseName={selectedWarehouseName}
           setShowModal={setShowModal}
-          setSelectedWarehouse={setSelectedWarehouse}
+          setSelectedWarehouseName={setSelectedWarehouseName}
+          setSelectedWarehouseId={setSelectedWarehouseId}
+          selectedWarehouseId={selectedWarehouseId}
         />
       ) : !isLoading ? (
         <>
-          <DeleteWarehouseModal selectedWarehouse={selectedWarehouse}
-          setShowModal={setShowModal} setSelectedWarehouse={setSelectedWarehouse} />
+          <DeleteWarehouseModal
+            selectedWarehouseName={selectedWarehouseName}
+            setShowModal={setShowModal}
+            setSelectedWarehouseName={setSelectedWarehouseName}
+            setSelectedWarehouseId={setSelectedWarehouseId}
+            selectedWarehouseId={selectedWarehouseId}
+          />
           <WarehouseList
             warehousesList={warehousesList}
-            setSelectedWarehouse={setSelectedWarehouse}
+            setSelectedWarehouseName={setSelectedWarehouseName}
+            setSelectedWarehouseId={setSelectedWarehouseId}
             setShowModal={setShowModal}
           />
         </>
