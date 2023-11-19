@@ -7,7 +7,7 @@ import deleteImg from "../../assets/Icons/delete_outline-24px.svg";
 import editImg from "../../assets/Icons/edit-24px.svg";
 import chevronImg from "../../assets/Icons/chevron_right-24px.svg";
 
-function WarehouseList({ warehousesList, setShowModal, setSelectedWarehouse }) {
+function WarehouseList({ warehousesList, setShowModal, setSelectedWarehouseName, setSelectedWarehouseId }) {
   const columnHeaderArray = [
     "Warehouse",
     "Address",
@@ -16,9 +16,9 @@ function WarehouseList({ warehousesList, setShowModal, setSelectedWarehouse }) {
     "Actions",
   ];
 
-  const handleDeleteWarehouse = (selectedWarehouse) => {
-    console.log("delete warehouse");
-    setSelectedWarehouse(selectedWarehouse);
+  const handleDeleteWarehouse = (selectedWarehouse, selectedId) => {
+    setSelectedWarehouseName(selectedWarehouse);
+    setSelectedWarehouseId(selectedId);
     setShowModal(true);
   };
 
@@ -142,7 +142,7 @@ function WarehouseList({ warehousesList, setShowModal, setSelectedWarehouse }) {
                           src={deleteImg}
                           alt="delete icon"
                           onClick={() =>
-                            handleDeleteWarehouse(warehouse.warehouse_name)
+                            handleDeleteWarehouse(warehouse.warehouse_name, warehouse.id)
                           }
                         />
                       </div>

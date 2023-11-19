@@ -9,7 +9,8 @@ const API_URL = process.env.API_URL || "http://localhost:8080";
 function Inventory() {
   const [inventoryList, setInventoryList] = useState([null]);
   const [isLoading, setIsLoading] = useState(true);
-  const [selectedInventory, setSelectedInventory] = useState(null);
+  const [selectedInventoryName, setSelectedInventoryName] = useState(null);
+  const [selectedInventoryId, setSelectedInventoryId] = useState(null);
   const [showModal, setShowModal] = useState(false);
   const [viewWidth, setViewWidth] = useState(window.innerWidth);
 
@@ -29,7 +30,7 @@ function Inventory() {
       .catch((error) => {
         console.log(error);
       });
-  }, []);
+  }, [selectedInventoryId]);
 
   return (
     <>
@@ -37,7 +38,8 @@ function Inventory() {
         !isLoading ? (
           <InventoryList
             inventoryList={inventoryList}
-            setSelectedInventory={setSelectedInventory}
+            setSelectedInventoryName={setSelectedInventoryName}
+            setSelectedInventoryId={setSelectedInventoryId}
             setShowModal={setShowModal}
           />
         ) : (
@@ -45,32 +47,31 @@ function Inventory() {
         )
       ) : viewWidth <= 320 ? (
         <DeleteInventoryModal
-          selectedInventory={selectedInventory}
+          selectedInventoryName={selectedInventoryName}
+          selectedInventoryId={selectedInventoryId}
           setShowModal={setShowModal}
-          setSelectedInventory={setSelectedInventory}
+          setSelectedInventoryName={setSelectedInventoryName}
+          setSelectedInventoryId={setSelectedInventoryId}
         />
       ) : !isLoading ? (
         <>
           <DeleteInventoryModal
-            selectedInventory={selectedInventory}
+            selectedInventoryName={selectedInventoryName}
+            selectedInventoryId={selectedInventoryId}
             setShowModal={setShowModal}
-            setSelectedInventory={setSelectedInventory}
+            setSelectedInventoryName={setSelectedInventoryName}
+            setSelectedInventoryId={setSelectedInventoryId}
           />{" "}
           <InventoryList
             inventoryList={inventoryList}
-            setSelectedInventory={setSelectedInventory}
+            setSelectedInventoryName={setSelectedInventoryName}
+            setSelectedInventoryId={setSelectedInventoryId}
             setShowModal={setShowModal}
           />
         </>
       ) : (
         <div className="isLoading">Loading...</div>
       )}
-
-      {/*       {!isLoading ? (
-        <InventoryList inventoryList={inventoryList} />
-      ) : (
-        <div className="isLoading">Loading...</div>
-      )} */}
     </>
   );
 }

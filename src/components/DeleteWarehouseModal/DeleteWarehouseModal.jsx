@@ -1,22 +1,34 @@
 import React from "react";
 import "./DeleteWarehouseModal.scss";
 import closeImg from "../../assets/Icons/close-24px.svg";
+import axios from "axios";
+
+const API_URL = process.env.API_URL || "http://localhost:8080";
 
 const DeleteWarehouseModal = ({
-  selectedWarehouse,
+  selectedWarehouseName,
+  selectedWarehouseId,
   setShowModal,
-  setSelectedWarehouse,
+  setSelectedWarehouseName,
+  setSelectedWarehouseId,
 }) => {
   const handleClose = () => {
-    console.log("close modal");
-    setSelectedWarehouse(null);
+    setSelectedWarehouseName(null);
+    setSelectedWarehouseId(null);
     setShowModal(false);
   };
 
   const handleDelete = () => {
-    console.log("delete selected warehouse: ", selectedWarehouse);
-    setShowModal(false);
-    setSelectedWarehouse(null);
+    axios
+      .delete(API_URL + "/warehouses/" + selectedWarehouseId)
+      .then((response) => {
+        setShowModal(false);
+        setSelectedWarehouseName(null);
+        setSelectedWarehouseId(null);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
   };
 
   return (
@@ -26,12 +38,12 @@ const DeleteWarehouseModal = ({
           <img src={closeImg} alt="close icon" onClick={handleClose} />
         </div>
         <div className="delete-warehouse-modal__title">
-          <h1>Delete {selectedWarehouse} warehouse? </h1>
+          <h1>Delete {selectedWarehouseName} warehouse? </h1>
         </div>
         <div className="delete-warehouse-modal__text">
           <p>
-            Please confirm that you'd like to delete {selectedWarehouse} from
-            the list of warehouses. You won't be able to undo this action.
+            Please confirm that you'd like to delete {selectedWarehouseName}{" "}
+            from the list of warehouses. You won't be able to undo this action.
           </p>
         </div>
         <div className="delete-warehouse-modal__buttons">

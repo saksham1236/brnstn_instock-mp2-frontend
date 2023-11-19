@@ -1,22 +1,38 @@
 import React from "react";
 import "./DeleteInventoryModal.scss";
 import closeImg from "../../assets/Icons/close-24px.svg";
+import axios from "axios";
+
+const API_URL = process.env.API_URL || "http://localhost:8080";
 
 const DeleteInventoryModal = ({
-  selectedInventory,
+  selectedInventoryName,
+  selectedInventoryId,
   setShowModal,
-  setSelectedInventory,
+  setSelectedInventoryName,
+  setSelectedInventoryId,
 }) => {
   const handleClose = () => {
-    console.log("close modal");
-    setSelectedInventory(null);
+    setSelectedInventoryName(null);
+    setSelectedInventoryId(null);
     setShowModal(false);
   };
 
   const handleDelete = () => {
-    console.log("delete selected Inventory: ", selectedInventory);
+    axios
+    .delete(API_URL + "/inventories/" + selectedInventoryId)
+    .then((response) => {
+      setShowModal(false);
+      setSelectedInventoryName(null);
+      setSelectedInventoryId(null);
+    })
+    .catch((error) => {
+      console.error(error);
+    });
+    
     setShowModal(false);
-    setSelectedInventory(null);
+    setSelectedInventoryName(null);
+    setSelectedInventoryId(null);
   };
 
   return (
@@ -26,11 +42,11 @@ const DeleteInventoryModal = ({
           <img src={closeImg} alt="close icon" onClick={handleClose} />
         </div>
         <div className="delete-inventory-modal__title">
-          <h1>Delete {selectedInventory} inventory item? </h1>
+          <h1>Delete {selectedInventoryName} inventory item? </h1>
         </div>
         <div className="delete-inventory-modal__text">
           <p>
-            Please confirm that you'd like to delete {selectedInventory} from
+            Please confirm that you'd like to delete {selectedInventoryName} from
             the inventory list. You won't be able to undo this action.
           </p>
         </div>

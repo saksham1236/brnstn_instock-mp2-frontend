@@ -7,7 +7,7 @@ import deleteImg from "../../assets/Icons/delete_outline-24px.svg";
 import editImg from "../../assets/Icons/edit-24px.svg";
 import chevronImg from "../../assets/Icons/chevron_right-24px.svg";
 
-function InventoryList({ inventoryList, setShowModal, setSelectedInventory }) {
+function InventoryList({ inventoryList, setShowModal, setSelectedInventoryName, setSelectedInventoryId }) {
   const columnHeaderArray = [
     "Inventory Item",
     "Category",
@@ -17,9 +17,9 @@ function InventoryList({ inventoryList, setShowModal, setSelectedInventory }) {
     "Actions",
   ];
 
-  const handleDeleteInventory = (selectedInventory) => {
-    console.log("delete inventory");
-    setSelectedInventory(selectedInventory);
+  const handleDeleteInventory = (selectedInventoryName, selectedInventoryId) => {
+    setSelectedInventoryName(selectedInventoryName);
+    setSelectedInventoryId(selectedInventoryId);
     setShowModal(true);
   };
 
@@ -66,7 +66,7 @@ function InventoryList({ inventoryList, setShowModal, setSelectedInventory }) {
           <div className="sort-block">
             <div className="sort-block__container">
               {columnHeaderArray.map((columnHeader, index) => (
-                <div className="sort-block__column-header">
+                <div className="sort-block__column-header" key={columnHeader}>
                   <div className="sort-block__header">{columnHeader}</div>
                   {index !== 5 && (
                     <div className="sort-block__buttons">
@@ -150,7 +150,7 @@ function InventoryList({ inventoryList, setShowModal, setSelectedInventory }) {
                         src={deleteImg}
                         alt="delete icon"
                         onClick={() =>
-                          handleDeleteInventory(inventoryItem.item_name)
+                          handleDeleteInventory(inventoryItem.item_name, inventoryItem.id)
                         }
                       />
                     </div>
