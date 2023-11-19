@@ -7,7 +7,12 @@ import deleteImg from "../../assets/Icons/delete_outline-24px.svg";
 import editImg from "../../assets/Icons/edit-24px.svg";
 import chevronImg from "../../assets/Icons/chevron_right-24px.svg";
 
-function WarehouseList({ warehousesList, setShowModal, setSelectedWarehouseName, setSelectedWarehouseId }) {
+function WarehouseList({
+  warehousesList,
+  setShowModal,
+  setSelectedWarehouseName,
+  setSelectedWarehouseId,
+}) {
   const columnHeaderArray = [
     "Warehouse",
     "Address",
@@ -16,6 +21,7 @@ function WarehouseList({ warehousesList, setShowModal, setSelectedWarehouseName,
     "Actions",
   ];
 
+  // function for button - setting up the modal to delete a warehouse
   const handleDeleteWarehouse = (selectedWarehouse, selectedId) => {
     setSelectedWarehouseName(selectedWarehouse);
     setSelectedWarehouseId(selectedId);
@@ -33,6 +39,7 @@ function WarehouseList({ warehousesList, setShowModal, setSelectedWarehouseName,
             <input
               type="text"
               className="warehouses-title-block__search-bar"
+              id="home-search-bar"
               placeholder="Search..."
             />
             <img src={searchImg} alt="sort icon" />
@@ -52,6 +59,7 @@ function WarehouseList({ warehousesList, setShowModal, setSelectedWarehouseName,
               <input
                 type="text"
                 className="warehouses-search-block__search-bar"
+                id="home-search-bar"
                 placeholder="Search..."
               />
               <img src={searchImg} alt="sort icon" />
@@ -100,8 +108,14 @@ function WarehouseList({ warehousesList, setShowModal, setSelectedWarehouseName,
                     </div>
                     <div className="warehouses-items-block__warehouse-name">
                       <Link to={`/warehouses/${warehouse.id}`}>
-                        {warehouse.warehouse_name}
-                        <img src={chevronImg} alt="chevron icon" />
+                        <div className="warehouses-items-block__warehouse-name-container">
+                          {warehouse.warehouse_name}
+                          <img
+                            src={chevronImg}
+                            alt="chevron icon"
+                            className="warehouses-items-block__warehouse-name-chevron"
+                          />
+                        </div>
                       </Link>
                     </div>
                     <div className="warehouses-items-block__header warehouses-mobile-view">
@@ -142,7 +156,10 @@ function WarehouseList({ warehousesList, setShowModal, setSelectedWarehouseName,
                           src={deleteImg}
                           alt="delete icon"
                           onClick={() =>
-                            handleDeleteWarehouse(warehouse.warehouse_name, warehouse.id)
+                            handleDeleteWarehouse(
+                              warehouse.warehouse_name,
+                              warehouse.id
+                            )
                           }
                         />
                       </div>

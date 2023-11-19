@@ -126,9 +126,9 @@
     }
 
     &:hover {
-      background-color: var(--Cloud);
-      color: var(--White);
-      transition: background-color 0.25s, color 0.25s;
+      border-color: var(--Instock-Indigo);
+      color: var(--Instock-Indigo);
+      transition: border-color 0.25s, color 0.25s;
       cursor: pointer;
     }
   }
