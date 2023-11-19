@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { v4 as uuidv4 } from 'uuid';
+import { Link } from 'react-router-dom';
 import axios from 'axios';
 
 // pages
@@ -22,7 +23,7 @@ const regexEmail = new RegExp(
 
 export default function AddWarehouseForm() {
   const navigate = useNavigate();
-
+  const handleClickCancel = () => navigate(-1);
   const [error, setError] = useState({});
 
   // build new warehouse object to hold data, to be submitted to server
@@ -108,11 +109,13 @@ export default function AddWarehouseForm() {
         <header className="page-header">
           <div className="page-header__div">
             <button className="page-header__button">
-              <img
-                className="page-header__button-icon"
-                src={ArrowBack}
-                alt="Back Arrow"
-              ></img>
+              <Link to="/">
+                <img
+                  className="page-header__button-icon"
+                  src={ArrowBack}
+                  alt="Back Arrow"
+                ></img>
+              </Link>
             </button>
             <div className="page-header__header">Add New Warehouse</div>
           </div>
