@@ -1,5 +1,8 @@
-import { useState, useEffect } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
+import { useState } from 'react';
+import { useEffect } from 'react';
+import { useParams } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { v4 as uuidv4 } from 'uuid';
 import axios from 'axios';
 
@@ -95,10 +98,14 @@ export default function EditWarehouseForm() {
   useEffect(() => {
     axios.get(`http://localhost:8080/warehouses/${warehouse_id}`)
       .then(res => {
-        setFormData(res.data)
+        setFormData(res.data);
       })
+      .catch(error => {
+        console.error('Error fetching data:', error);
+        // Handle the error appropriately
+      });
+}, [warehouse_id]);
 
-  }, [warehouse_id])
 
   // form submit handler
   const handleSubmit = (e) => {
@@ -121,11 +128,14 @@ export default function EditWarehouseForm() {
         <header className="page-header">
           <div className="page-header__div">
             <button className="page-header__button">
+            <Link to="/warehouses">
               <img
                 className="page-header__button-icon"
                 src={ArrowBack}
                 alt="Back Arrow"
-              ></img>
+                onClick={navigate(-1)}
+              />
+              </Link>
             </button>
             <div className="page-header__header">Edit Warehouse</div>
           </div>
