@@ -51,6 +51,7 @@ function AddInventory(props) {
 		})
 	}
 
+	
 	return (
 		<>
 			<TitleComponent
