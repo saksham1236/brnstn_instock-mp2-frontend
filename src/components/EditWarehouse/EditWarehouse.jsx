@@ -1,5 +1,5 @@
-import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useState, useEffect } from 'react';
+import { useParams, useNavigate } from 'react-router-dom';
 import { v4 as uuidv4 } from 'uuid';
 import axios from 'axios';
 
@@ -21,12 +21,15 @@ const regexEmail = new RegExp(
 );
 
 export default function EditWarehouseForm() {
-  // to be used when api is implemented
-  // const navigate = useNavigate()
+  const navigate = useNavigate();
+  const { warehouse_id } = useParams()
 
+  const handleClickCancel = () => navigate(-1);
+
+  // piece of state that holds an object of error messages
   const [error, setError] = useState({});
 
-  // build new warehouse object to hold data, to be submitted to server
+  // piece of state to hold warehouse details
   const [formData, setFormData] = useState({
     warehouse_name: '',
     address: '',
@@ -89,11 +92,26 @@ export default function EditWarehouseForm() {
     return isValid; // Return the validity of the form
   };
 
+  useEffect(() => {
+    axios.get(`http://localhost:8080/warehouses/${warehouse_id}`)
+      .then(res => {
+        setFormData(res.data)
+      })
+
+  }, [warehouse_id])
+
   // form submit handler
   const handleSubmit = (e) => {
     e.preventDefault();
     if (validateForm()) {
-      // If form is valid, can call API to submit form data
+      axios
+      .put(`http://localhost:8080/warehouses/${warehouse_id}`, formData)
+        .then((response) => {
+          console.log(response.data);
+          alert('Warehouse Updated Successfully! 🚀');
+          navigate(-1);
+        })
+        .catch((error) => console.error('Error:', error));
     }
   };
 
@@ -259,7 +277,7 @@ export default function EditWarehouseForm() {
           </div>
 
           <div className="warehouse-form__buttons">
-            <button className="button button--cancel" type="button">
+            <button className="button button--cancel" type="button" onClick={handleClickCancel}>
               Cancel
             </button>
             <button className="button" type="submit">
