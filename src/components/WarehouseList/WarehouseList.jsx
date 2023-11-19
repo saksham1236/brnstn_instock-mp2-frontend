@@ -45,11 +45,11 @@ function WarehouseList({
             <img src={searchImg} alt="sort icon" />
           </div>
           <div className="warehouses-title-block__add warehouses-tablet-view">
-              <Link to={`/warehouse/add`}>
-                <button className="warehouses-title-block__add-button">
-                  + Add New Warehouse
-                </button>
-              </Link>
+            <Link to={`/warehouse/add`}>
+              <button className="warehouses-title-block__add-button">
+                + Add New Warehouse
+              </button>
+            </Link>
           </div>
         </div>
       </div>
@@ -68,12 +68,13 @@ function WarehouseList({
             </div>
 
             <div className="warehouses-search-block__add">
-              <button className="warehouses-search-block__add-button">
-                + Add New Warehouse
-              </button>
+              <Link to={`/warehouse/add`}>
+                <button className="warehouses-search-block__add-button">
+                  + Add New Warehouse
+                </button>
+              </Link>
             </div>
           </div>
-
           <div className="warehouses-sort-block">
             <div className="warehouses-sort-block__container">
               {columnHeaderArray.map((columnHeader, index) => (
@@ -167,9 +168,9 @@ function WarehouseList({
                       </div>
                     </div>
                     <Link to={`/warehouse/${warehouse.id}/edit`}>
-                          <div className="warehouses-items-block__warehouse-actions-edit">
-                            <img src={editImg} alt="edit icon" />
-                          </div>
+                      <div className="warehouses-items-block__warehouse-actions-edit">
+                        <img src={editImg} alt="edit icon" />
+                      </div>
                     </Link>
                   </div>
                 </div>

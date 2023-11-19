@@ -48,8 +48,13 @@ function InventoryList({
             />
             <img src={searchImg} alt="sort icon" />
           </div>
+
           <div className="title-block__add tablet-view">
-            <button className="title-block__add-button">+ Add New Item</button>
+            <Link to={`/inventory/add`}>
+              <button className="title-block__add-button">
+                + Add New Item
+              </button>
+            </Link>
           </div>
         </div>
       </div>
@@ -68,10 +73,14 @@ function InventoryList({
             </div>
 
             <div className="search-block__add">
-              <button className="search-block__add-button">
-                + Add New Item
-              </button>
+            <Link to={`/inventory/add`}>
+              <button className="search-block__add-button">+ Add New Item</button>
+              </Link>
             </div>
+
+
+
+
           </div>
 
           <div className="sort-block">
