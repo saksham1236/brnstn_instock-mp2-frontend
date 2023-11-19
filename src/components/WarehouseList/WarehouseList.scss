@@ -1,8 +1,8 @@
 @import "../../styles/partials/global";
 
 :root {
-  --card-width: 65rem;
-  --card-width-tablet: 42rem;
+  --warehouse-card-width: 65rem;
+  --warehouse-card-width-tablet: 42rem;
 }
 
 .warehouses-tablet-view {
@@ -36,16 +36,15 @@
       align-items: center;
       justify-content: space-between;
       height: 5rem;
-      display: flex;
       align-items: flex-end;
       padding: 1rem 1.5rem 0.7rem;
-      width: var(--card-width-tablet);
+      width: var(--warehouse-card-width-tablet);
     }
 
     @include desktop {
       height: 6.6rem;
       padding: 1rem 2rem 1.5rem;
-      width: var(--card-width);
+      width: var(--warehouse-card-width);
     }
   }
 
@@ -77,6 +76,7 @@
       padding: 0.2rem 0;
       border: 1px solid var(--Cloud);
       border-radius: 1.25rem;
+      outline: none;
     }
     @include desktop {
       font-size: 1rem;
@@ -90,8 +90,11 @@
       margin-right: auto;
       background-color: transparent;
       width: 85%;
+      outline: none;
 
-      &:focus {
+      &:focus,
+      &:active {
+        border: 0px;
         outline: none;
       }
     }
@@ -135,10 +138,6 @@
         margin-bottom: 0.4rem;
       }
       @include desktop {
-        background-color: var(--Instock-Indigo);
-        color: var(--White);
-        border: none;
-        border-radius: 1.25rem;
         padding: 0.6rem 2rem;
         font-size: 1rem;
       }
@@ -163,20 +162,12 @@
     z-index: 0;
 
     @include tablet {
-      width: var(--card-width-tablet);
+      width: var(--warehouse-card-width-tablet);
       background-color: var(--White);
-      border-bottom-left-radius: 0.2rem;
-      border-bottom-right-radius: 0.2rem;
-      box-shadow: 0px 0px 4px 4px rgba(0, 0, 0, 0.05);
-      z-index: 0;
     }
     @include desktop {
-      width: var(--card-width);
+      width: var(--warehouse-card-width);
       background-color: var(--White);
-      border-bottom-left-radius: 0.2rem;
-      border-bottom-right-radius: 0.2rem;
-      box-shadow: 0px 0px 4px 4px rgba(0, 0, 0, 0.05);
-      z-index: 0;
     }
   }
 }
@@ -207,6 +198,7 @@
       border: none;
       margin-right: auto;
       background-color: transparent;
+
       &:focus {
         outline: none;
       }
@@ -241,7 +233,6 @@
         transition: background-color 0.25s;
         cursor: pointer;
       }
-
     }
   }
 }
@@ -261,14 +252,14 @@
     justify-content: space-between;
     align-items: center;
     padding: 0.5rem 1.5rem;
-    width: var(--card-width-tablet);
+    width: var(--warehouse-card-width-tablet);
     background-color: var(--Light-Grey);
     color: var(--Slate);
     font-size: 0.7rem;
     z-index: 0;
 
     @include desktop {
-      width: var(--card-width);
+      width: var(--warehouse-card-width);
       padding: 1rem 2rem;
       font-size: 0.9rem;
     }
@@ -336,11 +327,11 @@
 
   @include tablet {
     border-top: none;
-    width: var(--card-width-tablet);
+    width: var(--warehouse-card-width-tablet);
     z-index: 2;
   }
   @include desktop {
-    width: var(--card-width);
+    width: var(--warehouse-card-width);
   }
 
   &__row {
@@ -365,7 +356,6 @@
   &__mobile-block-1 {
     display: flex;
     justify-content: space-between;
-    // border: 1px solid palegreen;
     padding: 0 1rem;
 
     @include tablet {
@@ -376,7 +366,6 @@
   }
 
   &__column-1 {
-    // border: 1px dashed lightseagreen;
     width: 45%;
     @include tablet {
       display: flex;
@@ -390,7 +379,6 @@
   }
 
   &__column-2 {
-    // border: 1px dashed lightsalmon;
     flex-grow: 1;
     margin-left: 1rem;
 
@@ -440,6 +428,25 @@
         text-decoration: none;
         font-weight: 700;
         color: var(--Instock-Indigo);
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+
+      &-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: transform 0.3s ease;
+
+        &:hover .warehouses-items-block__warehouse-name-chevron {
+          transform: translateX(0.25rem);
+        }
+      }
+
+      &-chevron {
+        transition: transform 0.3s ease;
       }
 
       @include tablet {
@@ -485,7 +492,6 @@
   }
 
   &__mobile-block-2 {
-    // border: 1px solid palevioletred;
     @include tablet {
       display: initial;
     }
@@ -506,6 +512,9 @@
     img {
       width: 1.2rem;
       margin: 0.5rem 0;
+      &:hover {
+        cursor: pointer;
+      }
 
       @include tablet {
         width: 2rem;
@@ -516,8 +525,17 @@
   }
 }
 
-.mobile-view {
+.warehouses-mobile-view {
   @include tablet {
     display: none;
+  }
+}
+
+#home-search-bar {
+  border: none;
+
+  &:focus {
+    outline: none;
+    border: none;
   }
 }

@@ -8,6 +8,7 @@ import EditWarehouseForm from './components/EditWarehouse/EditWarehouse';
 import InventoryDetails from './components/InventoryDetails/InventoryDetails';
 import Inventory from "./pages/inventory/Inventory";
 import WarehouseDetails from "./components/WarehouseDetails/WarehouseDetails";
+import EditInventoryForm from "./components/EditInventory/EditInventory";
 
 function App() {
   let { itemId } = useParams();
@@ -22,7 +23,7 @@ function App() {
         {<Route path ="/warehouse/edit" element = {<EditWarehouseForm />} />}
         {<Route path ="/inventory" element = {<Inventory />} />}
         <Route path ="/inventory/:itemId" element = {<InventoryDetails />} />
-        {/* {<Route path ="/inventory/:item/edit" element = {<InventoryItemEdit />} />} */}
+        {<Route path ="/inventory/:itemId/edit" element = {<EditInventoryForm />} />}
         {/* {<Route path ="/inventory/add" element = {<AddInventory />} />} */}
         <Route path="/:id" element = {<WarehouseDetails />} />
       </Routes>

@@ -6,35 +6,50 @@ import searchImg from "../../assets/Icons/search-24px.svg";
 import deleteImg from "../../assets/Icons/delete_outline-24px.svg";
 import editImg from "../../assets/Icons/edit-24px.svg";
 import chevronImg from "../../assets/Icons/chevron_right-24px.svg";
-import { useState } from "react";
 
-function InventoryList({ inventoryList }) {
+function InventoryList({
+  inventoryList,
+  setShowModal,
+  setSelectedInventoryName,
+  setSelectedInventoryId,
+}) {
   const columnHeaderArray = [
     "Inventory Item",
     "Category",
     "Status",
     "Qty",
     "Warehouse",
-    "Actions"
+    "Actions",
   ];
+
+  // function for button - setting up the modal to delete an inventory item
+  const handleDeleteInventory = (
+    selectedInventoryName,
+    selectedInventoryId
+  ) => {
+    setSelectedInventoryName(selectedInventoryName);
+    setSelectedInventoryId(selectedInventoryId);
+    setShowModal(true);
+  };
 
   return (
     <>
       <div className="title-block">
         <div className="title-block__container">
-          <div className="title-block__title"><h1>Inventory</h1></div>
+          <div className="title-block__title">
+            <h1>Inventory</h1>
+          </div>
           <div className="title-block__search tablet-view">
             <input
               type="text"
               className="title-block__search-bar"
+              id="home-search-bar"
               placeholder="Search..."
             />
             <img src={searchImg} alt="sort icon" />
           </div>
           <div className="title-block__add tablet-view">
-            <button className="title-block__add-button">
-              + Add New Item
-            </button>
+            <button className="title-block__add-button">+ Add New Item</button>
           </div>
         </div>
       </div>
@@ -46,6 +61,7 @@ function InventoryList({ inventoryList }) {
               <input
                 type="text"
                 className="search-block__search-bar"
+                id="home-search-bar"
                 placeholder="Search..."
               />
               <img src={searchImg} alt="sort icon" />
@@ -61,7 +77,7 @@ function InventoryList({ inventoryList }) {
           <div className="sort-block">
             <div className="sort-block__container">
               {columnHeaderArray.map((columnHeader, index) => (
-                <div className="sort-block__column-header">
+                <div className="sort-block__column-header" key={columnHeader}>
                   <div className="sort-block__header">{columnHeader}</div>
                   {index !== 5 && (
                     <div className="sort-block__buttons">
@@ -89,7 +105,14 @@ function InventoryList({ inventoryList }) {
                     </div>
                     <div className="inventory-block__inventory-name">
                       <Link to={`/inventory/${inventoryItem.id}`}>
-                        {inventoryItem.item_name}<img src={chevronImg} alt="chevron icon" />
+                        <div className="inventory-block__inventory-name-container">
+                          {inventoryItem.item_name}
+                          <img
+                            src={chevronImg}
+                            alt="chevron icon"
+                            className="inventory-block__inventory-name-chevron"
+                          />
+                        </div>
                       </Link>
                     </div>
                     <div className="inventory-block__header mobile-view">
@@ -106,9 +129,13 @@ function InventoryList({ inventoryList }) {
                     </div>
 
                     <div className="inventory-block__inventory-status">
-                      <div className={`inventory-block__inventory-status-tag ${inventoryItem.quantity !== 0 ?
-                        "inventory-block__inventory-status--in-stock" :
-                        "inventory-block__inventory-status--no-stock"}`}>
+                      <div
+                        className={`inventory-block__inventory-status-tag ${
+                          inventoryItem.quantity !== 0
+                            ? "inventory-block__inventory-status--in-stock"
+                            : "inventory-block__inventory-status--no-stock"
+                        }`}
+                      >
                         {inventoryItem.status}
                       </div>
                     </div>
@@ -126,9 +153,9 @@ function InventoryList({ inventoryList }) {
                       {columnHeaderArray[4]}
                     </div>
                     <div className="inventory-block__inventory-warehouse-name">
-                    <div className="inventory-block__inventory-warehouse-column">
-                      {inventoryItem.warehouse_name}
-                    </div>
+                      <div className="inventory-block__inventory-warehouse-column">
+                        {inventoryItem.warehouse_name}
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -136,7 +163,16 @@ function InventoryList({ inventoryList }) {
                 <div className="inventory-block__mobile-block-2">
                   <div className="inventory-block__inventory-actions">
                     <div className="inventory-block__inventory-actions-delete">
-                      <img src={deleteImg} alt="delete icon" />
+                      <img
+                        src={deleteImg}
+                        alt="delete icon"
+                        onClick={() =>
+                          handleDeleteInventory(
+                            inventoryItem.item_name,
+                            inventoryItem.id
+                          )
+                        }
+                      />
                     </div>
                     <div className="inventory-block__inventory-actions-edit">
                       <img src={editImg} alt="edit icon" />

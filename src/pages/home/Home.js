@@ -7,18 +7,22 @@ import DeleteWarehouseModal from "../../components/DeleteWarehouseModal/DeleteWa
 const API_URL = process.env.API_URL || "http://localhost:8080";
 
 function Home() {
-  const [warehousesList, setWarehousesList] = useState([null]);
   const [isLoading, setIsLoading] = useState(true);
-  const [selectedWarehouse, setSelectedWarehouse] = useState(null);
-  const [showModal, setShowModal] = useState(true);
+  const [warehousesList, setWarehousesList] = useState([null]);
+  const [selectedWarehouseName, setSelectedWarehouseName] = useState(null);
+  const [selectedWarehouseId, setSelectedWarehouseId] = useState(null);
+  const [showModal, setShowModal] = useState(false);
   const [viewWidth, setViewWidth] = useState(window.innerWidth);
 
+  // This useEffect is used to set the viewWidth state to the current window width
+  // It is used help determine whether the modal should take the full screen (for mobile) or not
   useEffect(() => {
     const resize = () => setViewWidth(window.innerWidth);
     window.addEventListener("resize", resize);
     return () => window.removeEventListener("resize", resize);
   }, [viewWidth]);
 
+  // This useEffect is used to fetch the list of warehouses from the API
   useEffect(() => {
     axios
       .get(API_URL + "/warehouses")
@@ -29,46 +33,49 @@ function Home() {
       .catch((error) => {
         console.error(error);
       });
-  }, []);
+  }, [selectedWarehouseId]);
 
   return (
     <>
-      {/* this code block below needs to be fixed, warehouse list component needs to  */}
-
-      {
-        !showModal ? (
-          !isLoading ? (
-            <WarehouseList warehousesList={warehousesList} />
-          ) : (
-            <div className="isLoading">Loading...</div>
-          )
-        ) : //show modal
-
-        viewWidth <= 320 ? (
-          <DeleteWarehouseModal />
-        ) : !isLoading ? (
-          <>
-            <DeleteWarehouseModal style={{ transform: 'translateY(-50px)' }} />
-            <WarehouseList warehousesList={warehousesList} />
-          </>
+      {!showModal ? (
+        !isLoading ? (
+          <WarehouseList
+            warehousesList={warehousesList}
+            setSelectedWarehouseName={setSelectedWarehouseName}
+            setSelectedWarehouseId={setSelectedWarehouseId}
+            setShowModal={setShowModal}
+          />
         ) : (
           <div className="isLoading">Loading...</div>
         )
-
-        // ((!showModal) && (viewWidth <= 320)) ? (
-        //   !isLoading ? (
-        //     <WarehouseList warehousesList={warehousesList} />
-        //   ) : (
-        //     <div className="isLoading">Loading...</div>
-        //   )
-        // ) : (
-        //   !isLoading ? (
-        //     <WarehouseList warehousesList={warehousesList} />
-        //   ) : (
-        //     <div className="isLoading">Loading...</div>
-        //   )
-        // )
-      }
+      ) : viewWidth < 768 ? (
+        // This is the mobile version of the modal
+        <DeleteWarehouseModal
+          selectedWarehouseName={selectedWarehouseName}
+          selectedWarehouseId={selectedWarehouseId}
+          setShowModal={setShowModal}
+          setSelectedWarehouseName={setSelectedWarehouseName}
+          setSelectedWarehouseId={setSelectedWarehouseId}
+        />
+      ) : !isLoading ? (
+        <>
+          <DeleteWarehouseModal
+            selectedWarehouseName={selectedWarehouseName}
+            selectedWarehouseId={selectedWarehouseId}
+            setShowModal={setShowModal}
+            setSelectedWarehouseName={setSelectedWarehouseName}
+            setSelectedWarehouseId={setSelectedWarehouseId}
+          />
+          <WarehouseList
+            warehousesList={warehousesList}
+            setSelectedWarehouseName={setSelectedWarehouseName}
+            setSelectedWarehouseId={setSelectedWarehouseId}
+            setShowModal={setShowModal}
+          />
+        </>
+      ) : (
+        <div className="isLoading">Loading...</div>
+      )}
     </>
   );
 }

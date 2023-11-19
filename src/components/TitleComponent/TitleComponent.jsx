@@ -6,7 +6,7 @@ import ButtonEl from "../Button/Button";
 
 /**
  *
- * @param {ReactProps} props
+ * @param {title: string, backButton: boolean, buttonType: (cancel | edit | delete), buttonTitle: string, buttonLink: string, searchComponent: boolean} as props
  * @returns Title Component with header
  */
 function TitleComponent(props) {
@@ -58,12 +58,8 @@ function TitleComponent(props) {
 						/>
 					</div>
 				)}
+				{buttonTitle && <ButtonEl className = "buttonEl" title={buttonTitle} buttonType={buttonType} link={buttonLink}/>}
 
-				<ButtonEl
-					title={buttonTitle}
-					buttonType={buttonType}
-					link={buttonLink}
-				/>
 			</div>
 		</div>
 	);
