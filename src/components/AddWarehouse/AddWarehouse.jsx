@@ -268,10 +268,7 @@ export default function AddWarehouseForm() {
           </div>
 
           <div className="warehouse-form__buttons">
-            <button
-              className="btn btn--cancel btn--cancel__hover"
-              type="button"
-            >
+            <button className="btn btn--cancel btn--cancel__hover" type="button" onClick={handleClickCancel}>
               Cancel
             </button>
             <button className="btn" type="submit">
