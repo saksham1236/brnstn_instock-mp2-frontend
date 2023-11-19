@@ -26,7 +26,6 @@ const regexEmail = new RegExp(
 export default function EditWarehouseForm() {
   const navigate = useNavigate();
   const { warehouse_id } = useParams()
-
   const handleClickCancel = () => navigate(-1);
 
   // piece of state that holds an object of error messages
@@ -113,11 +112,11 @@ export default function EditWarehouseForm() {
     if (validateForm()) {
       axios
       .put(`http://localhost:8080/warehouses/${warehouse_id}`, formData)
-        .then((response) => {
-          console.log(response.data);
-          alert('Warehouse Updated Successfully! 🚀');
-          navigate(-1);
-        })
+      .then((response) => {
+        console.log(response.data);
+        alert('Warehouse Updated Successfully! 🚀');
+        navigate(-1);
+      })
         .catch((error) => console.error('Error:', error));
     }
   };
@@ -133,7 +132,7 @@ export default function EditWarehouseForm() {
                 className="page-header__button-icon"
                 src={ArrowBack}
                 alt="Back Arrow"
-                onClick={navigate(-1)}
+                onClick={handleClickCancel}
               />
               </Link>
             </button>
