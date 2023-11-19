@@ -3,7 +3,7 @@ import InputComponent from "../Input/Input";
 import DropdownSelect from "../Dropdown/Dropdown";
 import RadioButtons from "../RadioButton/RadioButton";
 import ButtonEl from "../Button/Button";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import axios from "axios";
 import { useParams, useNavigate } from "react-router-dom";
 /**
@@ -14,12 +14,11 @@ import { useParams, useNavigate } from "react-router-dom";
 
 function AddInventory(props) {
 	const params = useParams();
-	const [itemData, setItemData] = useState();
 	const navigate = useNavigate();
 	const [formData, setFormData] = useState({
 		id: "",
 		warehouse_id: "",
-		item_name: "Television",
+		item_name: "",
 		description: "",
 		category: "",
 		status: "",
@@ -30,9 +29,8 @@ function AddInventory(props) {
 	});
 
 	const formHandler = (event) => {
-		axios.post()
 		event.preventDefault();
-		console.log(formData);
+		postData(formData);
 	};
 	const onChangeFormhandler = (event) => {
 		setFormData({ ...formData, [event.target.name]: event.target.value });
@@ -41,6 +39,18 @@ function AddInventory(props) {
 		event.preventDefault();
 		navigate(-1);
 	};
+
+	const postData = async (formData) => {
+		axios
+		.put(`http://localhost:8080/inventories/${params.itemId}`, formData)
+		.then((res) => {
+			alert(`Item has been added successfully ${res.status}`)
+		})
+		.catch((err) =>{
+			alert(`Axios error updating item details,  http://localhost:8080/inventories/${params.itemId}: ${err}`)
+		})
+	}
+
 	return (
 		<>
 			<TitleComponent
@@ -64,6 +74,7 @@ function AddInventory(props) {
 										labelName='Item Name'
 										fieldName='item_name'
 										defaultValue='Add Item Name'
+										error = {false}
 										required
 									/>
 									<InputComponent
@@ -85,6 +96,7 @@ function AddInventory(props) {
 										]}
 										defaultValue='Please select a category'
 										fieldName='category'
+										error = {false}
 										required
 									/>
 								</div>
@@ -96,12 +108,14 @@ function AddInventory(props) {
 									<RadioButtons
 										labelName='Status'
 										items={["In Stock", "Out of Stock"]}
+										error = {false}
 										fieldName='status'
 									/>
 									<InputComponent
 										labelName='Quantity'
 										defaultValue='0'
 										fieldName='quantity'
+										error = {false}
 										required
 									/>
 									<DropdownSelect
@@ -118,6 +132,7 @@ function AddInventory(props) {
 											"Boston",
 										]}
 										defaultValue='Please select a Warehouse'
+										error = {false}
 										fieldName='warehouse_name'
 									/>
 								</div>
