@@ -127,12 +127,11 @@ export default function EditWarehouseForm() {
         <header className="page-header">
           <div className="page-header__div">
             <button className="page-header__button">
-            <Link to="/warehouses">
+            <Link to="/">
               <img
                 className="page-header__button-icon"
                 src={ArrowBack}
                 alt="Back Arrow"
-                onClick={handleClickCancel}
               />
               </Link>
             </button>
