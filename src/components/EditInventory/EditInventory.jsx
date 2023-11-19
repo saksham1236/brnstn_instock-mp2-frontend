@@ -108,7 +108,7 @@ function EditInventory(props) {
 												"Manhattan",
 												"Washington",
 												"Jersey",
-												"San Francisco",
+												"SF",
 												"Santa Monica",
 												"Seattle",
 												"Miami",

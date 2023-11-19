@@ -40,7 +40,7 @@ function RadioButtons(props) {
 			{...rest}>
 			<label
 				className='inputEl__label label'
-				for={fieldName}>
+				htmlFor={fieldName}>
 				<h3>{labelName}</h3>
 			</label>
 			<div className='inputEl-radio__container'>
