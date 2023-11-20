@@ -3,7 +3,7 @@ import InputComponent from "../Input/Input";
 import DropdownSelect from "../Dropdown/Dropdown";
 import RadioButtons from "../RadioButton/RadioButton";
 import ButtonEl from "../Button/Button";
-import { useState } from "react";
+import { useState, useRef } from "react";
 import axios from "axios";
 import { useParams, useNavigate } from "react-router-dom";
 /**
@@ -15,7 +15,7 @@ import { useParams, useNavigate } from "react-router-dom";
 function AddInventory(props) {
 	const params = useParams();
 	const navigate = useNavigate();
-	const [formData, setFormData] = useState({
+	let formData  = useRef({
 		warehouse_id: "",
 		item_name: "",
 		description: "",
@@ -25,8 +25,12 @@ function AddInventory(props) {
 		warehouse_name: "",
 	});
 
-	const setWarehouseId = (formData) => {
-		const warehouse_name = formData.warehouse_name;
+	function setFormData(newFormData){
+		formData.current = newFormData;
+	}
+
+	const setWarehouseId = (newFormData) => {
+		const warehouse_name = newFormData.warehouse_name;
 		const warehouses = {
 			"Manhattan" : 1,
 			"Washington" : 2,
@@ -38,25 +42,23 @@ function AddInventory(props) {
 			"Boston" : 8
 		}
 		const id = warehouses[warehouse_name]
-		setFormData({...formData, ["warehouse_id"]: id});
+		setFormData({...formData.current, ["warehouse_id"]: id});
 	}
 
 	const formHandler = (event) => {
 		event.preventDefault();
-		setWarehouseId(formData);
-		console.log(formData);
+		setWarehouseId(formData.current);
+		console.log(formData.current);
 		//Form validation logic
-		// if(formData.warehouse_id | formData.item_name |  formData.category | formData.category === "Please select a category" | formData.quantity | formData.warehouse_name | formData.warehouse_name === "Please select a Warehouse") {
-		// 	if(formData.warehouse_id) {
-		// 		//
-		// 	}
-		// }
-		
-		console.log(formData);
-		// postData(formData);
+		if(formData.warehouse_id | formData.item_name |  formData.category | formData.category === "Please select a category" | formData.quantity | formData.warehouse_name | formData.warehouse_name === "Please select a Warehouse") {
+			alert("Invalid data");
+			return
+		}
+	
+		postData(formData.current);
 	};
 	const onChangeFormhandler = (event) => {
-			setFormData({ ...formData, [event.target.name]: event.target.value });
+		setFormData({...formData.current, [event.target.name]: event.target.value});
 	};
 
 	const backButtonHandler = (event) => {
@@ -64,9 +66,9 @@ function AddInventory(props) {
 		navigate(-1);
 	};
 
-	const postData = async (formData) => {
+	const postData = async (postFormData) => {
 		axios
-		.post(`http://localhost:8080/inventories/`, formData)
+		.post(`http://localhost:8080/inventories/`, postFormData)
 		.then((res) => {
 			alert(`Item has been added successfully ${res.status}`)
 		})
@@ -89,6 +91,7 @@ function AddInventory(props) {
 						<form
 							className='inventory-edit__form'
 							onSubmit={formHandler}
+							onChange={onChangeFormhandler}
 						>
 							<div className='inventory-edit__form__row'>
 								<div className='inventory-edit__form__column'>
@@ -99,8 +102,7 @@ function AddInventory(props) {
 										labelName='Item Name'
 										fieldName='item_name'
 										defaultValue='Add Item Name'
-										error-item_name = {false}
-										onChange = {onChangeFormhandler}
+										error = {false}
 										required
 									/>
 									<InputComponent
@@ -109,7 +111,6 @@ function AddInventory(props) {
 										defaultValue='Add a description'
 										fieldName='description'
 										error-description = {false}
-										onChange = {onChangeFormhandler}
 										required
 									/>
 									<DropdownSelect
@@ -125,7 +126,6 @@ function AddInventory(props) {
 										defaultValue='Please select a category'
 										fieldName='category'
 										error-category = {false}
-										onChange = {onChangeFormhandler}
 										required
 									/>
 								</div>
@@ -140,14 +140,12 @@ function AddInventory(props) {
 										error-status = {false}
 										fieldName='status'
 										defaultValue = {`${formData.status | "In Stock"}`}
-										onChange = {onChangeFormhandler}
 									/>
 									<InputComponent
 										labelName='Quantity'
 										defaultValue='0'
 										fieldName='quantity'
 										error-quantity = {false}
-										onChange = {onChangeFormhandler}
 										required
 									/>
 									<DropdownSelect
@@ -166,7 +164,6 @@ function AddInventory(props) {
 										defaultValue='Please select a Warehouse'
 										error = {false}
 										fieldName='warehouse_name'
-										onChange = {onChangeFormhandler}
 									/>
 								</div>
 							</div>
