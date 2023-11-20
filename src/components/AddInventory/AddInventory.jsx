@@ -3,7 +3,7 @@ import InputComponent from "../Input/Input";
 import DropdownSelect from "../Dropdown/Dropdown";
 import RadioButtons from "../RadioButton/RadioButton";
 import ButtonEl from "../Button/Button";
-import { useState, useRef } from "react";
+import { useRef } from "react";
 import axios from "axios";
 import { useParams, useNavigate } from "react-router-dom";
 /**
@@ -40,6 +40,7 @@ function AddInventory(props) {
 			"Miami" : 7,
 			"Boston" : 8
 		}
+
 		const id = warehouses[warehouse_name]
 		setFormData({...formData.current, ["warehouse_id"]: id});
 	}
