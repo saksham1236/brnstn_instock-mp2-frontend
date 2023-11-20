@@ -120,6 +120,7 @@
   &__add {
     &-button {
       transition: background-color 0.25s;
+      font-weight: 800;
       &:hover {
         background-color: var(--Graphite);
         color: var(--White);
@@ -134,7 +135,6 @@
         border-radius: 1.25rem;
         padding: 0.35rem 1.5rem;
         font-size: 0.8rem;
-        font-weight: 400;
         margin-bottom: 0.4rem;
       }
       @include desktop {
@@ -222,7 +222,7 @@
       border-radius: 1.25rem;
       padding: 0.2rem 0;
       font-size: 0.7rem;
-      font-weight: 400;
+      font-weight: 800;
       width: 15rem;
       height: 2rem;
       margin-bottom: 0.5rem;
@@ -528,14 +528,5 @@
 .warehouses-mobile-view {
   @include tablet {
     display: none;
-  }
-}
-
-#home-search-bar {
-  border: none;
-
-  &:focus {
-    outline: none;
-    border: none;
   }
 }
