@@ -28,10 +28,24 @@ function EditInventory(props) {
 		category: "",
 		status: "",
 		quantity: "",
-		created_at: "",
-		updated_at: "",
 		warehouse_name: "",
 	});
+
+	const setWarehouseId = (formData) => {
+		const warehouse_name = formData.warehouse_name;
+		const warehouses = {
+			"Manhattan" : 1,
+			"Washington" : 2,
+			"Jersey" : 3,
+			"SF" : 4,
+			"Santa Monica" : 5,
+			"Seattle" : 6,
+			"Miami" : 7,
+			"Boston" : 8
+		}
+		const id = warehouses[warehouse_name]
+		setFormData({...formData, ["warehouse_id"]: id});
+	}
 
 	const fetchData = async () => {
 		axios
@@ -145,7 +159,7 @@ function EditInventory(props) {
 												"Santa Monica",
 												"Seattle",
 												"Miami",
-												"Boston",
+												"Boston"
 											]}
 											defaultValue = {itemData.warehouse_name}
 											fieldName='warehouse_name'

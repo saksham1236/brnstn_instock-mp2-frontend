@@ -61,7 +61,7 @@ function WarehouseDetails(props) {
         </div>
       </section >
         <WarehouseList />
-    </div >
+    </div>
   )
 }
 

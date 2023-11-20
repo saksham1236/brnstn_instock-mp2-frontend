@@ -16,25 +16,49 @@ function AddInventory(props) {
 	const params = useParams();
 	const navigate = useNavigate();
 	const [formData, setFormData] = useState({
-		id: "",
 		warehouse_id: "",
 		item_name: "",
 		description: "",
 		category: "",
 		status: "",
 		quantity: "",
-		created_at: "",
-		updated_at: "",
 		warehouse_name: "",
 	});
 
+	const setWarehouseId = (formData) => {
+		const warehouse_name = formData.warehouse_name;
+		const warehouses = {
+			"Manhattan" : 1,
+			"Washington" : 2,
+			"Jersey" : 3,
+			"SF" : 4,
+			"Santa Monica" : 5,
+			"Seattle" : 6,
+			"Miami" : 7,
+			"Boston" : 8
+		}
+		const id = warehouses[warehouse_name]
+		setFormData({...formData, ["warehouse_id"]: id});
+	}
+
 	const formHandler = (event) => {
 		event.preventDefault();
-		postData(formData);
+		setWarehouseId(formData);
+		console.log(formData);
+		//Form validation logic
+		// if(formData.warehouse_id | formData.item_name |  formData.category | formData.category === "Please select a category" | formData.quantity | formData.warehouse_name | formData.warehouse_name === "Please select a Warehouse") {
+		// 	if(formData.warehouse_id) {
+		// 		//
+		// 	}
+		// }
+		
+		console.log(formData);
+		// postData(formData);
 	};
 	const onChangeFormhandler = (event) => {
-		setFormData({ ...formData, [event.target.name]: event.target.value });
+			setFormData({ ...formData, [event.target.name]: event.target.value });
 	};
+
 	const backButtonHandler = (event) => {
 		event.preventDefault();
 		navigate(-1);
@@ -42,12 +66,12 @@ function AddInventory(props) {
 
 	const postData = async (formData) => {
 		axios
-		.post(`http://localhost:8080/inventories/${params.itemId}`, formData)
+		.post(`http://localhost:8080/inventories/`, formData)
 		.then((res) => {
 			alert(`Item has been added successfully ${res.status}`)
 		})
 		.catch((err) =>{
-			alert(`Axios error updating item details,  http://localhost:8080/inventories/${params.itemId}: ${err}`)
+			alert(`Axios error adding item details,  http://localhost:8080/inventories/: ${err}`)
 		})
 	}
 
@@ -65,7 +89,7 @@ function AddInventory(props) {
 						<form
 							className='inventory-edit__form'
 							onSubmit={formHandler}
-							onChange={onChangeFormhandler}>
+						>
 							<div className='inventory-edit__form__row'>
 								<div className='inventory-edit__form__column'>
 									<h2 className='inventory-edit__form__header'>
@@ -75,7 +99,8 @@ function AddInventory(props) {
 										labelName='Item Name'
 										fieldName='item_name'
 										defaultValue='Add Item Name'
-										error = {false}
+										error-item_name = {false}
+										onChange = {onChangeFormhandler}
 										required
 									/>
 									<InputComponent
@@ -83,6 +108,8 @@ function AddInventory(props) {
 										type='textarea'
 										defaultValue='Add a description'
 										fieldName='description'
+										error-description = {false}
+										onChange = {onChangeFormhandler}
 										required
 									/>
 									<DropdownSelect
@@ -97,7 +124,8 @@ function AddInventory(props) {
 										]}
 										defaultValue='Please select a category'
 										fieldName='category'
-										error = {false}
+										error-category = {false}
+										onChange = {onChangeFormhandler}
 										required
 									/>
 								</div>
@@ -109,14 +137,17 @@ function AddInventory(props) {
 									<RadioButtons
 										labelName='Status'
 										items={["In Stock", "Out of Stock"]}
-										error = {false}
+										error-status = {false}
 										fieldName='status'
+										defaultValue = {`${formData.status | "In Stock"}`}
+										onChange = {onChangeFormhandler}
 									/>
 									<InputComponent
 										labelName='Quantity'
 										defaultValue='0'
 										fieldName='quantity'
-										error = {false}
+										error-quantity = {false}
+										onChange = {onChangeFormhandler}
 										required
 									/>
 									<DropdownSelect
@@ -126,7 +157,7 @@ function AddInventory(props) {
 											"Manhattan",
 											"Washington",
 											"Jersey",
-											"San Francisco",
+											"SF",
 											"Santa Monica",
 											"Seattle",
 											"Miami",
@@ -135,6 +166,7 @@ function AddInventory(props) {
 										defaultValue='Please select a Warehouse'
 										error = {false}
 										fieldName='warehouse_name'
+										onChange = {onChangeFormhandler}
 									/>
 								</div>
 							</div>
