@@ -183,9 +183,11 @@ function InventoryList({
                         }
                       />
                     </div>
-                    <div className="inventory-block__inventory-actions-edit">
-                      <img src={editImg} alt="edit icon" />
-                    </div>
+                    <Link to={`/inventory/${inventoryItem.id}/edit`}>
+                      <div className="inventory-block__inventory-actions-edit">
+                        <img src={editImg} alt="edit icon" />
+                      </div>
+                    </Link>
                   </div>
                 </div>
               </div>
