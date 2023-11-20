@@ -59,14 +59,14 @@ function EditInventory(props) {
 	const setWarehouseId = (newFormData) => {
 		const warehouse_name = newFormData.warehouse_name;
 		const warehouses = {
-			Manhattan: 1,
-			Washington: 2,
-			Jersey: 3,
-			SF: 4,
+			"Manhattan": 1,
+			"Washington": 2,
+			"Jersey": 3,
+			"SF": 4,
 			"Santa Monica": 5,
-			Seattle: 6,
-			Miami: 7,
-			Boston: 8,
+			"Seattle": 6,
+			"Miami": 7,
+			"Boston": 8
 		};
 		const id = warehouses[warehouse_name];
 		setFormData({ ...formData.current, ["warehouse_id"]: id });

@@ -32,14 +32,14 @@ function AddInventory(props) {
 	const setWarehouseId = (newFormData) => {
 		const warehouse_name = newFormData.warehouse_name;
 		const warehouses = {
-			Manhattan: 1,
-			Washington: 2,
-			Jersey: 3,
-			SF: 4,
+			"Manhattan": 1,
+			"Washington": 2,
+			"Jersey": 3,
+			"SF": 4,
 			"Santa Monica": 5,
-			Seattle: 6,
-			Miami: 7,
-			Boston: 8,
+			"Seattle": 6,
+			"Miami": 7,
+			"Boston": 8
 		};
 
 		const id = warehouses[warehouse_name];
@@ -90,6 +90,7 @@ function AddInventory(props) {
 		}
 
 		postData(formData.current);
+		navigate(-1);
 	};
 
 	function showQuantityFunc(show) {
