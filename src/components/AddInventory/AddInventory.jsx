@@ -90,6 +90,7 @@ function AddInventory(props) {
 		}
 
 		postData(formData.current);
+		navigate(-1);
 	};
 
 	function showQuantityFunc(show) {
