@@ -77,12 +77,12 @@ function AddInventory(props) {
 		console.log(formData.current);
 		//Form validation logic
 		if (
-			formData.warehouse_id |
-			formData.item_name |
-			formData.category |
-			(formData.category === "Please select a category") |
-			formData.quantity |
-			formData.warehouse_name |
+			formData.warehouse_id ||
+			formData.item_name ||
+			formData.category ||
+			(formData.category === "Please select a category") ||
+			formData.quantity ||
+			formData.warehouse_name ||
 			(formData.warehouse_name === "Please select a Warehouse")
 		) {
 			alert("Invalid data");

@@ -102,7 +102,7 @@ function EditInventory(props) {
 		setWarehouseId(formData.current);
 		console.log(formData.current);
 		postData(formData.current);
-		// navigate(-1);
+		navigate(-1);
 	};
 
 	const backButtonHandler = (event) => {
@@ -184,7 +184,7 @@ function EditInventory(props) {
 										{showQuantity && 										
 										<InputComponent
 											labelName='Quantity'
-											defaultValue='0'
+											defaultValue={itemData.quantity}
 											fieldName='quantity'
 											error-quantity={false}
 										/>}
