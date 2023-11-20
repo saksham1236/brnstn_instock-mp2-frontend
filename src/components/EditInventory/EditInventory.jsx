@@ -6,7 +6,7 @@ import InputComponent from "../Input/Input";
 import DropdownSelect from "../Dropdown/Dropdown";
 import RadioButtons from "../RadioButton/RadioButton";
 import ButtonEl from "../Button/Button";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import axios from "axios";
 import { useParams, useNavigate } from "react-router-dom";
 
@@ -20,19 +20,9 @@ function EditInventory(props) {
 	const params = useParams();
 	const [itemData, setItemData] = useState();
 	const navigate = useNavigate();
-	const [formData, setFormData] = useState({
-		id: "",
-		warehouse_id: "",
-		item_name: "",
-		description: "",
-		category: "",
-		status: "",
-		quantity: "",
-		warehouse_name: "",
-	});
 
-	const setWarehouseId = (formData) => {
-		const warehouse_name = formData.warehouse_name;
+	const setWarehouseId = (newFormData) => {
+		const warehouse_name = newFormData.warehouse_name;
 		const warehouses = {
 			"Manhattan" : 1,
 			"Washington" : 2,
@@ -44,7 +34,7 @@ function EditInventory(props) {
 			"Boston" : 8
 		}
 		const id = warehouses[warehouse_name]
-		setFormData({...formData, ["warehouse_id"]: id});
+		setFormData({...formData.current, ["warehouse_id"]: id});
 	}
 
 	const fetchData = async () => {
@@ -61,12 +51,26 @@ function EditInventory(props) {
 			});
 	};
 
-	const postData = async (formData) => {
+	let formData  = useRef({
+		warehouse_id: itemData.warehouse_id,
+		item_name: itemData.item_name,
+		description: itemData.description,
+		category: itemData.category,
+		status: itemData.status,
+		quantity: itemData.quantity,
+		warehouse_name: itemData.warehouse_name
+	});
+
+	function setFormData(newFormData){
+		formData.current = newFormData;
+	}
+
+
+	const postData = async (postFormData) => {
 		axios
-		.put(`http://localhost:8080/inventories/${params.itemId}`, formData)
+		.put(`http://localhost:8080/inventories/${params.itemId}`, postFormData)
 		.then((res) => {
 			alert(`Item has been updated successfully ${res.status}`)
-			fetchData();
 		})
 		.catch((err) =>{
 			alert(`Axios error updating item details,  http://localhost:8080/inventories/${params.itemId}: ${err}`)
@@ -74,14 +78,14 @@ function EditInventory(props) {
 	}
 
 	useEffect(() => {
-
 		fetchData();
 		console.log("ItemData:", itemData);
 	}, []);
 
 	const editFormHandler = (event) => {
 		event.preventDefault();
-		alert(event);
+		setWarehouseId(formData.current);
+		postData(formData.current);
 		navigate(-1);
 	}
 
@@ -92,7 +96,7 @@ function EditInventory(props) {
 	};
 
 	const onChangeFormhandler = (event) => {
-		setFormData({ ...formData, [event.target.name]: event.target.value });
+		setFormData({...formData.current, [event.target.name]: event.target.value});
 	};
 
 

@@ -23,6 +23,7 @@ function RadioButtons(props) {
 							name={fieldName}
 							id={`${fieldName}-${item}`}
 							defaultChecked={item === defaultValue ? "checked" : false}
+							value={item}
 						/>
 						<label
 							className='inputEl-radio__label p2'

@@ -103,7 +103,6 @@ function AddInventory(props) {
 										fieldName='item_name'
 										defaultValue='Add Item Name'
 										error = {false}
-										required
 									/>
 									<InputComponent
 										labelName='Description'
@@ -111,7 +110,6 @@ function AddInventory(props) {
 										defaultValue='Add a description'
 										fieldName='description'
 										error-description = {false}
-										required
 									/>
 									<DropdownSelect
 										labelName='Category'
@@ -126,7 +124,6 @@ function AddInventory(props) {
 										defaultValue='Please select a category'
 										fieldName='category'
 										error-category = {false}
-										required
 									/>
 								</div>
 
@@ -146,7 +143,6 @@ function AddInventory(props) {
 										defaultValue='0'
 										fieldName='quantity'
 										error-quantity = {false}
-										required
 									/>
 									<DropdownSelect
 										labelName='Warehouse'
