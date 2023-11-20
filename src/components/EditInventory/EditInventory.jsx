@@ -20,14 +20,14 @@ function EditInventory(props) {
 	const params = useParams();
 	const [itemData, setItemData] = useState();
 	const navigate = useNavigate();
-
+	const [showQuantity, setShowQuantity] = useState(false);
 	let formData = useRef({
 		item_name: "",
 		description: "",
 		category: "",
 		status: "",
 		quantity: "",
-		warehouse_id: ""
+		warehouse_id: "",
 	});
 
 	const fetchData = async () => {
@@ -37,15 +37,16 @@ function EditInventory(props) {
 				const items = res.data;
 				setItemData(items[0]);
 				setFormData({
-					...formData.current, 
+					...formData.current,
 					["item_name"]: items[0].item_name,
 					["description"]: items[0].description,
 					["category"]: items[0].category,
 					["status"]: items[0].status,
 					["quantity"]: items[0].quantity,
-					["warehouse_name"]: items[0].warehouse_name
-				})
-					setWarehouseId(formData.current)
+					["warehouse_name"]: items[0].warehouse_name,
+				});
+				setWarehouseId(formData.current);
+				setShowQuantity(items[0].status);
 				console.log(items);
 			})
 			.catch((err) => {
@@ -58,14 +59,14 @@ function EditInventory(props) {
 	const setWarehouseId = (newFormData) => {
 		const warehouse_name = newFormData.warehouse_name;
 		const warehouses = {
-			"Manhattan": 1,
-			"Washington": 2,
-			"Jersey" : 3,
-			"SF" : 4,
+			Manhattan: 1,
+			Washington: 2,
+			Jersey: 3,
+			SF: 4,
 			"Santa Monica": 5,
-			"Seattle": 6,
-			"Miami": 7,
-			"Boston": 8,
+			Seattle: 6,
+			Miami: 7,
+			Boston: 8,
 		};
 		const id = warehouses[warehouse_name];
 		setFormData({ ...formData.current, ["warehouse_id"]: id });
@@ -116,6 +117,13 @@ function EditInventory(props) {
 		});
 	};
 
+	function showQuantityFunc(show){
+		if(show === "In Stock") {
+			setShowQuantity(true);
+		} else {
+			setShowQuantity(false);
+		}
+	}
 	if (itemData) {
 		return (
 			<>
@@ -165,12 +173,22 @@ function EditInventory(props) {
 										<h2 className='inventory-edit__form__header'>
 											Item Availabilty
 										</h2>
+
 										<RadioButtons
 											labelName='Status'
 											items={["In Stock", "Out of Stock"]}
-											defaultValue={itemData.status}
+											defaultValue={formData.current.status}
 											fieldName='status'
+											onChange = {(event) => showQuantityFunc(event.target.value)}
 										/>
+										{showQuantity && 										
+										<InputComponent
+											labelName='Quantity'
+											defaultValue='0'
+											fieldName='quantity'
+											error-quantity={false}
+										/>}
+
 
 										<DropdownSelect
 											labelName='Warehouse'
