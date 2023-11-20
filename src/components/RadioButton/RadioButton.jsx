@@ -16,14 +16,14 @@ function RadioButtons(props) {
 	}
 
 	const RadioOptions = () => items.map(item => 
-					<div className= {`inputEl-radio__option ${item != defaultValue && "disabled"}`}>
+					<div className= {`inputEl-radio__option`} >
 						<input
 							className='inputEl-radio__button'
 							type='radio'
 							name={fieldName}
 							id={`${fieldName}-${item}`}
 							defaultChecked={item === defaultValue ? "checked" : false}
-							disabled = {item != defaultValue && "disabled"}
+							value={item}
 						/>
 						<label
 							className='inputEl-radio__label p2'

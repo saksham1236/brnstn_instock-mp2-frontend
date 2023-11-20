@@ -6,13 +6,13 @@ import InputComponent from "../Input/Input";
 import DropdownSelect from "../Dropdown/Dropdown";
 import RadioButtons from "../RadioButton/RadioButton";
 import ButtonEl from "../Button/Button";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import axios from "axios";
 import { useParams, useNavigate } from "react-router-dom";
 
 /**
- * 
- * @param {*} props 
+ *
+ * @param {*} props
  * @returns Renders Edit Inventory Form component
  */
 
@@ -20,17 +20,14 @@ function EditInventory(props) {
 	const params = useParams();
 	const [itemData, setItemData] = useState();
 	const navigate = useNavigate();
-	const [formData, setFormData] = useState({
-		id: "",
-		warehouse_id: "",
+
+	let formData = useRef({
 		item_name: "",
 		description: "",
 		category: "",
 		status: "",
 		quantity: "",
-		created_at: "",
-		updated_at: "",
-		warehouse_name: "",
+		warehouse_id: ""
 	});
 
 	const fetchData = async () => {
@@ -39,38 +36,73 @@ function EditInventory(props) {
 			.then((res) => {
 				const items = res.data;
 				setItemData(items[0]);
+				setFormData({
+					...formData.current, 
+					["item_name"]: items[0].item_name,
+					["description"]: items[0].description,
+					["category"]: items[0].category,
+					["status"]: items[0].status,
+					["quantity"]: items[0].quantity,
+					["warehouse_name"]: items[0].warehouse_name
+				})
+					setWarehouseId(formData.current)
+				console.log(items);
 			})
 			.catch((err) => {
 				console.log(
-					`Axios error http://localhost:8080/inventories/:id: ${err}`
+					`Axios error http://localhost:8080/inventories/${params.itemId}: ${err}`
 				);
 			});
 	};
 
-	const postData = async (formData) => {
-		axios
-		.put(`http://localhost:8080/inventories/${params.itemId}`, formData)
-		.then((res) => {
-			alert(`Item has been updated successfully ${res.status}`)
-			fetchData();
-		})
-		.catch((err) =>{
-			alert(`Axios error updating item details,  http://localhost:8080/inventories/${params.itemId}: ${err}`)
-		})
+	const setWarehouseId = (newFormData) => {
+		const warehouse_name = newFormData.warehouse_name;
+		const warehouses = {
+			"Manhattan": 1,
+			"Washington": 2,
+			"Jersey" : 3,
+			"SF" : 4,
+			"Santa Monica": 5,
+			"Seattle": 6,
+			"Miami": 7,
+			"Boston": 8,
+		};
+		const id = warehouses[warehouse_name];
+		setFormData({ ...formData.current, ["warehouse_id"]: id });
+	};
+
+	function setFormData(newFormData) {
+		formData.current = newFormData;
 	}
 
-	useEffect(() => {
+	const postData = async (postFormData) => {
+		axios
+			.put(
+				`http://localhost:8080/inventories/${params.itemId}`,
+				postFormData
+			)
+			.then((res) => {
+				alert(`Item has been updated successfully ${res.status}`);
+			})
+			.catch((err) => {
+				alert(
+					`Axios error updating item details,  http://localhost:8080/inventories/${params.itemId}: ${err}`
+				);
+			});
+	};
 
+	useEffect(() => {
 		fetchData();
 		console.log("ItemData:", itemData);
 	}, []);
 
 	const editFormHandler = (event) => {
 		event.preventDefault();
-		alert(event);
-		navigate(-1);
-	}
-
+		setWarehouseId(formData.current);
+		console.log(formData.current);
+		postData(formData.current);
+		// navigate(-1);
+	};
 
 	const backButtonHandler = (event) => {
 		event.preventDefault();
@@ -78,9 +110,11 @@ function EditInventory(props) {
 	};
 
 	const onChangeFormhandler = (event) => {
-		setFormData({ ...formData, [event.target.name]: event.target.value });
+		setFormData({
+			...formData.current,
+			[event.target.name]: event.target.value,
+		});
 	};
-
 
 	if (itemData) {
 		return (
@@ -93,7 +127,10 @@ function EditInventory(props) {
 				<section className='card-container__background'>
 					<div className='card-container__card'>
 						<div className='inventory-edit__container'>
-							<form className='inventory-edit__form' onSubmit={editFormHandler} onChange = {onChangeFormhandler}>
+							<form
+								className='inventory-edit__form'
+								onSubmit={editFormHandler}
+								onChange={onChangeFormhandler}>
 								<div className='inventory-edit__form__row'>
 									<div className='inventory-edit__form__column'>
 										<h2 className='inventory-edit__form__header'>
@@ -119,7 +156,7 @@ function EditInventory(props) {
 												"Accessories",
 												"Health",
 											]}
-											defaultValue = {itemData.category}
+											defaultValue={itemData.category}
 											fieldName='category'
 										/>
 									</div>
@@ -131,7 +168,7 @@ function EditInventory(props) {
 										<RadioButtons
 											labelName='Status'
 											items={["In Stock", "Out of Stock"]}
-											defaultValue = {itemData.status}
+											defaultValue={itemData.status}
 											fieldName='status'
 										/>
 
@@ -147,7 +184,9 @@ function EditInventory(props) {
 												"Miami",
 												"Boston",
 											]}
-											defaultValue = {itemData.warehouse_name}
+											defaultValue={
+												itemData.warehouse_name
+											}
 											fieldName='warehouse_name'
 										/>
 									</div>
@@ -157,9 +196,12 @@ function EditInventory(props) {
 										<ButtonEl
 											title='Cancel'
 											buttonType='cancel'
-											onClick = {backButtonHandler}
+											onClick={backButtonHandler}
 										/>
-										<ButtonEl title='Submit' type = "submit"/>
+										<ButtonEl
+											title='Submit'
+											type='submit'
+										/>
 									</div>
 								</div>
 							</form>
