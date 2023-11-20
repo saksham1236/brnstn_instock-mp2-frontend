@@ -1,11 +1,11 @@
-import React from "react";
-import "./InventoryList.scss";
-import { Link } from "react-router-dom";
-import sortImg from "../../assets/Icons/sort-24px.svg";
-import searchImg from "../../assets/Icons/search-24px.svg";
-import deleteImg from "../../assets/Icons/delete_outline-24px.svg";
-import editImg from "../../assets/Icons/edit-24px.svg";
-import chevronImg from "../../assets/Icons/chevron_right-24px.svg";
+import React from 'react';
+import './InventoryList.scss';
+import { Link } from 'react-router-dom';
+import sortImg from '../../assets/Icons/sort-24px.svg';
+import searchImg from '../../assets/Icons/search-24px.svg';
+import deleteImg from '../../assets/Icons/delete_outline-24px.svg';
+import editImg from '../../assets/Icons/edit-24px.svg';
+import chevronImg from '../../assets/Icons/chevron_right-24px.svg';
 
 function InventoryList({
   inventoryList,
@@ -14,12 +14,12 @@ function InventoryList({
   setSelectedInventoryId,
 }) {
   const columnHeaderArray = [
-    "Inventory Item",
-    "Category",
-    "Status",
-    "Qty",
-    "Warehouse",
-    "Actions",
+    'Inventory Item',
+    'Category',
+    'Status',
+    'Qty',
+    'Warehouse',
+    'Actions',
   ];
 
   // function for button - setting up the modal to delete an inventory item
@@ -73,14 +73,12 @@ function InventoryList({
             </div>
 
             <div className="search-block__add">
-            <Link to={`/inventory/add`}>
-              <button className="search-block__add-button">+ Add New Item</button>
+              <Link to={`/inventory/add`}>
+                <button className="search-block__add-button">
+                  + Add New Item
+                </button>
               </Link>
             </div>
-
-
-
-
           </div>
 
           <div className="sort-block">
@@ -141,8 +139,8 @@ function InventoryList({
                       <div
                         className={`inventory-block__inventory-status-tag ${
                           inventoryItem.quantity !== 0
-                            ? "inventory-block__inventory-status--in-stock"
-                            : "inventory-block__inventory-status--no-stock"
+                            ? 'inventory-block__inventory-status--in-stock'
+                            : 'inventory-block__inventory-status--no-stock'
                         }`}
                       >
                         {inventoryItem.status}
@@ -183,9 +181,11 @@ function InventoryList({
                         }
                       />
                     </div>
-                    <div className="inventory-block__inventory-actions-edit">
-                      <img src={editImg} alt="edit icon" />
-                    </div>
+                    <Link to={`/inventory/${inventoryItem.id}/edit`}>
+                      <div className="inventory-block__inventory-actions-edit">
+                        <img src={editImg} alt="edit icon" />
+                      </div>
+                    </Link>
                   </div>
                 </div>
               </div>
