@@ -21,8 +21,7 @@ function AddInventory(props) {
 		description: "",
 		category: "",
 		status: "",
-		quantity: "",
-		warehouse_name: "",
+		quantity: ""
 	});
 
 	function setFormData(newFormData){
@@ -45,18 +44,7 @@ function AddInventory(props) {
 		setFormData({...formData.current, ["warehouse_id"]: id});
 	}
 
-	const formHandler = (event) => {
-		event.preventDefault();
-		setWarehouseId(formData.current);
-		console.log(formData.current);
-		//Form validation logic
-		if(formData.warehouse_id | formData.item_name |  formData.category | formData.category === "Please select a category" | formData.quantity | formData.warehouse_name | formData.warehouse_name === "Please select a Warehouse") {
-			alert("Invalid data");
-			return
-		}
-	
-		postData(formData.current);
-	};
+
 	const onChangeFormhandler = (event) => {
 		setFormData({...formData.current, [event.target.name]: event.target.value});
 	};
@@ -77,6 +65,18 @@ function AddInventory(props) {
 		})
 	}
 
+	const formHandler = (event) => {
+		event.preventDefault();
+		setWarehouseId(formData.current);
+		console.log(formData.current);
+		//Form validation logic
+		if(formData.warehouse_id | formData.item_name |  formData.category | formData.category === "Please select a category" | formData.quantity | formData.warehouse_name | formData.warehouse_name === "Please select a Warehouse") {
+			alert("Invalid data");
+			return
+		}
+	
+		postData(formData.current);
+	};
 	
 	return (
 		<>

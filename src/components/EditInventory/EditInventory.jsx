@@ -21,6 +21,15 @@ function EditInventory(props) {
 	const [itemData, setItemData] = useState();
 	const navigate = useNavigate();
 
+	let formData  = useRef({
+		warehouse_id: "",
+		item_name: "",
+		description: "",
+		category: "",
+		status: "",
+		quantity: ""
+	});
+	
 	const setWarehouseId = (newFormData) => {
 		const warehouse_name = newFormData.warehouse_name;
 		const warehouses = {
@@ -43,23 +52,21 @@ function EditInventory(props) {
 			.then((res) => {
 				const items = res.data;
 				setItemData(items[0]);
+				setFormData({
+						warehouse_id: itemData.warehouse_id,
+						item_name: itemData.item_name,
+						description: itemData.description,
+						category: itemData.category,
+						status: itemData.status,
+						quantity: itemData.quantity
+					})
 			})
 			.catch((err) => {
 				console.log(
 					`Axios error http://localhost:8080/inventories/:id: ${err}`
 				);
 			});
-	};
-
-	let formData  = useRef({
-		warehouse_id: itemData.warehouse_id,
-		item_name: itemData.item_name,
-		description: itemData.description,
-		category: itemData.category,
-		status: itemData.status,
-		quantity: itemData.quantity,
-		warehouse_name: itemData.warehouse_name
-	});
+	}
 
 	function setFormData(newFormData){
 		formData.current = newFormData;
