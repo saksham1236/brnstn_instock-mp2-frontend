@@ -32,7 +32,7 @@ function WarehouseList() {
     // This useEffect is used to fetch the list of inventories from the API
     useEffect(() => {
       axios
-        .get(`${API_URL}/warehouses/${params.warehouse}/inventories`) //http://localhost:8080/warehouses/1/inventories
+        .get(`${API_URL}/warehouses/${params.warehouse}/inventories`) 
         .then((response) => {
           setInventoryList(response.data);
           setIsLoading(false);
@@ -163,9 +163,12 @@ function WarehouseList() {
                               }
                             />
                           </div>
-                          <div className="inventory-block__inventory-actions-edit">
-                            <img src={editImg} alt="edit icon" />
-                          </div>
+                          <Link to = {`/inventory/${inventoryItem.id}/edit`}>
+                            <div className="inventory-block__inventory-actions-edit">
+                              <img src={editImg} alt="edit icon" />
+                            </div>
+                          </Link>
+
                         </div>
                       </div>
                     </div>
