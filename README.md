@@ -67,7 +67,7 @@ Technologies used in the project:
 
 
 ## Collaborators: 
-Arjun Sahjpaul - 
-Saksham Tandon
-Kate Bark
-Michael Sun Dela Cruz
+Arjun Sahjpaul - https://github.com/ffluxpavillion
+Saksham Tandon - https://github.com/saksham1236
+Kate Bark - https://github.com/KateBark
+Michael Sun Dela Cruz - https://github.com/mikesdc
