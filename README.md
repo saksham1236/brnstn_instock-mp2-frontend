@@ -8,13 +8,13 @@
 
 <h2>Project Screenshots:</h2>
 
-<img src="https://raw.githubusercontent.com/saksham1236/brnstn_instock-mp2-frontend/master/demo/InStock-Warehouse-details.png" alt="project-screenshot" width="400" height="400/">
+<img src="https://raw.githubusercontent.com/saksham1236/brnstn_instock-mp2-frontend/master/demo/InStock-Warehouse-details.png" alt="project-screenshot"/">
 
-<img src="https://raw.githubusercontent.com/saksham1236/brnstn_instock-mp2-frontend/master/demo/InStock-inventory.png" alt="project-screenshot" width="400" height="400/">
+<img src="https://raw.githubusercontent.com/saksham1236/brnstn_instock-mp2-frontend/master/demo/InStock-inventory.png" alt="project-screenshot" />
 
-<img src="https://raw.githubusercontent.com/saksham1236/brnstn_instock-mp2-frontend/master/demo/InStock-item-details.png" alt="project-screenshot" width="400" height="400/">
+<img src="https://raw.githubusercontent.com/saksham1236/brnstn_instock-mp2-frontend/master/demo/InStock-item-details.png" alt="project-screenshot" /">
 
-<img src="https://raw.githubusercontent.com/saksham1236/brnstn_instock-mp2-frontend/master/demo/InStock-add-inventory.png" alt="project-screenshot" width="400" height="400/">
+<img src="https://raw.githubusercontent.com/saksham1236/brnstn_instock-mp2-frontend/master/demo/InStock-add-inventory.png" alt="project-screenshot" /">
 
   
   
